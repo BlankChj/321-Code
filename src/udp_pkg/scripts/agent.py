@@ -20,7 +20,7 @@ import copy
 import psutil
 
 received_data = defaultdict(deque)
-send_queue = Queue(maxsize=10)
+send_queue = Queue(maxsize=20)
 port_locks = defaultdict(Lock)
 attack_mode = 0.0
 attack_power = 0.0
@@ -64,7 +64,7 @@ class MultiPortListener(threading.Thread):
             receive_time = time.time()
             with port_locks[port]:
                 received_data[port].append((client_address, data, receive_time))
-                if len(received_data[port]) > 10:
+                if len(received_data[port]) > 20:
                     received_data[port].popleft()
         except Exception as e:
             print(f"处理数据出错: {e}")
@@ -211,7 +211,7 @@ class Agent:
         print("按 Ctrl+C 停止程序...")
 
         def sender_func():
-            send_rate = rospy.Rate(25)
+            send_rate = rospy.Rate(60)
             while True:
                 m0 = self.pose.stamp
                 m1 = self.pose.x_pos
@@ -238,10 +238,10 @@ class Agent:
 
         def listener_func():
             ports = self.ports_to_listen
-            listen_rate = rospy.Rate(25)
+            listen_rate = rospy.Rate(60)
             while True:
                 messages = get_latest_data()
-                for i in range(self.num):
+                for i in range(1):
                     p = ports[i]
                     if p in messages:
                         with port_locks[i]:
@@ -307,7 +307,7 @@ class Agent:
                                     self.dos_flag = False
                                 else:
                                     self.dos_cnt += 1
-                                    self.cmd.stamp = copy.deepcopy(self.all_pose[0])
+                                    self.cmd = copy.deepcopy(self.all_pose[0])
                                     self.cmd.x_pos = self.dos_x
                                     self.cmd.y_pos = self.dos_y
                                     self.cmd.z_pos = self.dos_z
