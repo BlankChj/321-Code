@@ -1,0 +1,8 @@
+prefix=/home/ubuntu/resilient_ws/devel
+
+Name: security_estimation
+Description: Description of security_estimation
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: message_filters roscpp std_msgs udp_pkg
