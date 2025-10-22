@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/ubuntu/resilient_ws/devel/lib/python3/dist-packages/udp_pkg/msg/_PositionVelocityAccel.py"
-  "/home/ubuntu/resilient_ws/devel/lib/python3/dist-packages/udp_pkg/msg/__init__.py"
+  "/home/ubuntu/attack_ws/devel/lib/python3/dist-packages/udp_pkg/msg/_PositionVelocityAccel.py"
+  "/home/ubuntu/attack_ws/devel/lib/python3/dist-packages/udp_pkg/msg/__init__.py"
   "CMakeFiles/udp_pkg_generate_messages_py"
 )
 

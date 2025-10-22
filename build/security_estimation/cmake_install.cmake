@@ -1,8 +1,8 @@
-# Install script for directory: /home/ubuntu/resilient_ws/src/security_estimation
+# Install script for directory: /home/ubuntu/attack_ws/src/security_estimation
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/ubuntu/resilient_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/ubuntu/attack_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -43,17 +43,17 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ubuntu/resilient_ws/build/security_estimation/catkin_generated/installspace/security_estimation.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ubuntu/attack_ws/build/security_estimation/catkin_generated/installspace/security_estimation.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/security_estimation/cmake" TYPE FILE FILES
-    "/home/ubuntu/resilient_ws/build/security_estimation/catkin_generated/installspace/security_estimationConfig.cmake"
-    "/home/ubuntu/resilient_ws/build/security_estimation/catkin_generated/installspace/security_estimationConfig-version.cmake"
+    "/home/ubuntu/attack_ws/build/security_estimation/catkin_generated/installspace/security_estimationConfig.cmake"
+    "/home/ubuntu/attack_ws/build/security_estimation/catkin_generated/installspace/security_estimationConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/security_estimation" TYPE FILE FILES "/home/ubuntu/resilient_ws/src/security_estimation/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/security_estimation" TYPE FILE FILES "/home/ubuntu/attack_ws/src/security_estimation/package.xml")
 endif()
 

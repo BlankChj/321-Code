@@ -53,10 +53,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ubuntu/resilient_ws/src
+CMAKE_SOURCE_DIR = /home/ubuntu/attack_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ubuntu/resilient_ws/build
+CMAKE_BINARY_DIR = /home/ubuntu/attack_ws/build
 
 # Utility rule file for roscpp_generate_messages_nodejs.
 
@@ -74,10 +74,10 @@ udp_pkg/CMakeFiles/roscpp_generate_messages_nodejs.dir/build: roscpp_generate_me
 .PHONY : udp_pkg/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
 
 udp_pkg/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean:
-	cd /home/ubuntu/resilient_ws/build/udp_pkg && $(CMAKE_COMMAND) -P CMakeFiles/roscpp_generate_messages_nodejs.dir/cmake_clean.cmake
+	cd /home/ubuntu/attack_ws/build/udp_pkg && $(CMAKE_COMMAND) -P CMakeFiles/roscpp_generate_messages_nodejs.dir/cmake_clean.cmake
 .PHONY : udp_pkg/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
 
 udp_pkg/CMakeFiles/roscpp_generate_messages_nodejs.dir/depend:
-	cd /home/ubuntu/resilient_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/resilient_ws/src /home/ubuntu/resilient_ws/src/udp_pkg /home/ubuntu/resilient_ws/build /home/ubuntu/resilient_ws/build/udp_pkg /home/ubuntu/resilient_ws/build/udp_pkg/CMakeFiles/roscpp_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ubuntu/attack_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/attack_ws/src /home/ubuntu/attack_ws/src/udp_pkg /home/ubuntu/attack_ws/build /home/ubuntu/attack_ws/build/udp_pkg /home/ubuntu/attack_ws/build/udp_pkg/CMakeFiles/roscpp_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : udp_pkg/CMakeFiles/roscpp_generate_messages_nodejs.dir/depend
 

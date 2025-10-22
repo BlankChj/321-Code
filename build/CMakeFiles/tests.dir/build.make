@@ -53,10 +53,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ubuntu/resilient_ws/src
+CMAKE_SOURCE_DIR = /home/ubuntu/attack_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ubuntu/resilient_ws/build
+CMAKE_BINARY_DIR = /home/ubuntu/attack_ws/build
 
 # Utility rule file for tests.
 
@@ -78,6 +78,6 @@ CMakeFiles/tests.dir/clean:
 .PHONY : CMakeFiles/tests.dir/clean
 
 CMakeFiles/tests.dir/depend:
-	cd /home/ubuntu/resilient_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/resilient_ws/src /home/ubuntu/resilient_ws/src /home/ubuntu/resilient_ws/build /home/ubuntu/resilient_ws/build /home/ubuntu/resilient_ws/build/CMakeFiles/tests.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ubuntu/attack_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/attack_ws/src /home/ubuntu/attack_ws/src /home/ubuntu/attack_ws/build /home/ubuntu/attack_ws/build /home/ubuntu/attack_ws/build/CMakeFiles/tests.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/tests.dir/depend
 

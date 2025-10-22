@@ -9,7 +9,7 @@ project(kalman_filter)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
-  offboard_control
+  udp_pkg
   roscpp
   rospy
   std_msgs
@@ -78,6 +78,7 @@ add_message_files(
 ## Generate added messages and services with any dependencies listed here
 generate_messages(
   DEPENDENCIES
+  udp_pkg
   geometry_msgs#   std_msgs
   std_msgs
 )
@@ -114,7 +115,7 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES kalman_filter
- CATKIN_DEPENDS geometry_msgs offboard_control roscpp rospy std_msgs message_runtime
+ CATKIN_DEPENDS geometry_msgs udp_pkg roscpp rospy std_msgs message_runtime
 )
 
 ###########

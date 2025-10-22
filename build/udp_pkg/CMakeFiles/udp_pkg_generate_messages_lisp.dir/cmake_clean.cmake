@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/ubuntu/resilient_ws/devel/share/common-lisp/ros/udp_pkg/msg/PositionVelocityAccel.lisp"
+  "/home/ubuntu/attack_ws/devel/share/common-lisp/ros/udp_pkg/msg/PositionVelocityAccel.lisp"
   "CMakeFiles/udp_pkg_generate_messages_lisp"
 )
 

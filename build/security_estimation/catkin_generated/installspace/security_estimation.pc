@@ -1,4 +1,4 @@
-prefix=/home/ubuntu/resilient_ws/install
+prefix=/home/ubuntu/attack_ws/install
 
 Name: security_estimation
 Description: Description of security_estimation

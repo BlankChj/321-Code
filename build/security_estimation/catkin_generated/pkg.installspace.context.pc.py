@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "message_filters;roscpp;std_msgs;udp_pkg".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "security_estimation"
-PROJECT_SPACE_DIR = "/home/ubuntu/resilient_ws/install"
+PROJECT_SPACE_DIR = "/home/ubuntu/attack_ws/install"
 PROJECT_VERSION = "0.0.0"

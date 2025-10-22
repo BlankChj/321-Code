@@ -91,11 +91,11 @@ KF::KF(const ros::NodeHandle & nh):
 //     return noise;
 // }
 
-void KF::mixMsgCallback(const offboard_control::PosVelAcc::ConstPtr& msg){    
+void KF::mixMsgCallback(const udp_pkg::PositionVelocityAccel::ConstPtr& msg){    
     // pos and vel of System output is used to update the state. C 6x6, y 6x1
     // Assume Acc is not disrupt
     // Using small angle assumption, so Acc dont need to be converted by quaternion
-    _timeNow = msg->timestamp;
+    _timeNow = msg->stamp;
     _timeGap = _timeNow - _timeLast;
     _timeLast = _timeNow;
 

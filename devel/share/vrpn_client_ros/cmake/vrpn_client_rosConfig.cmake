@@ -67,14 +67,14 @@ set(vrpn_client_ros_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(vrpn_client_ros_SOURCE_PREFIX /home/ubuntu/resilient_ws/src/vrpn_client_ros)
-  set(vrpn_client_ros_DEVEL_PREFIX /home/ubuntu/resilient_ws/devel)
+  set(vrpn_client_ros_SOURCE_PREFIX /home/ubuntu/attack_ws/src/vrpn_client_ros)
+  set(vrpn_client_ros_DEVEL_PREFIX /home/ubuntu/attack_ws/devel)
   set(vrpn_client_ros_INSTALL_PREFIX "")
   set(vrpn_client_ros_PREFIX ${vrpn_client_ros_DEVEL_PREFIX})
 else()
   set(vrpn_client_ros_SOURCE_PREFIX "")
   set(vrpn_client_ros_DEVEL_PREFIX "")
-  set(vrpn_client_ros_INSTALL_PREFIX /home/ubuntu/resilient_ws/install)
+  set(vrpn_client_ros_INSTALL_PREFIX /home/ubuntu/attack_ws/install)
   set(vrpn_client_ros_PREFIX ${vrpn_client_ros_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(vrpn_client_ros_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/ubuntu/resilient_ws/src/vrpn_client_ros/include;/opt/ros/noetic/include " STREQUAL " ")
+if(NOT "/home/ubuntu/attack_ws/src/vrpn_client_ros/include;/opt/ros/noetic/include " STREQUAL " ")
   set(vrpn_client_ros_INCLUDE_DIRS "")
-  set(_include_dirs "/home/ubuntu/resilient_ws/src/vrpn_client_ros/include;/opt/ros/noetic/include")
+  set(_include_dirs "/home/ubuntu/attack_ws/src/vrpn_client_ros/include;/opt/ros/noetic/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/ubuntu/resilient_ws/src/vrpn_client_ros/include;/opt/ros/noetic/in
         message(FATAL_ERROR "Project 'vrpn_client_ros' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'vrpn_client_ros' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/ubuntu/resilient_ws/src/vrpn_client_ros/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'vrpn_client_ros' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/ubuntu/attack_ws/src/vrpn_client_ros/${idir}'.  ${_report}")
     endif()
     _list_append_unique(vrpn_client_ros_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/ubuntu/resilient_ws/devel/lib;/home/ubuntu/resilient_ws/devel/lib;/home/ubuntu/yjz/limo_ws/devel/lib;/home/ubuntu/hnu/gvins/devel/lib;/home/ubuntu/hnu/vins-multi-uav/devel/lib;/home/ubuntu/catkin_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/ubuntu/attack_ws/devel/lib;/home/ubuntu/yjz/limo_ws/devel/lib;/home/ubuntu/hnu/gvins/devel/lib;/home/ubuntu/hnu/vins-multi-uav/devel/lib;/home/ubuntu/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

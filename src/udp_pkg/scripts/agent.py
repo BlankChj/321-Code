@@ -156,6 +156,10 @@ class Agent:
         self.num = num
         self.ids = ids
         self.dos_flag = True
+        self.dos_cnt = 0
+        self.dos_x = 0.0
+        self.dos_y = 0.0
+        self.dos_z = 0.0
         self.port = 8001 + ids
         self.server_host_list = server_host_list
         self.ports_to_listen = [8001 + i for i in range(self.num)]
@@ -207,7 +211,7 @@ class Agent:
         print("按 Ctrl+C 停止程序...")
 
         def sender_func():
-            send_rate = rospy.Rate(60)
+            send_rate = rospy.Rate(25)
             while True:
                 m0 = self.pose.stamp
                 m1 = self.pose.x_pos
@@ -234,7 +238,7 @@ class Agent:
 
         def listener_func():
             ports = self.ports_to_listen
-            listen_rate = rospy.Rate(60)
+            listen_rate = rospy.Rate(25)
             while True:
                 messages = get_latest_data()
                 for i in range(self.num):
@@ -282,29 +286,39 @@ class Agent:
         attack_thread.start()
 
         try:
-            rate = rospy.Rate(60)
+            rate = rospy.Rate(20)
             while not rospy.is_shutdown():
                 try:
                     with port_locks[8100]:
                         with port_locks[0]:
                             if attack_mode == 0.0:
                                 self.dos_flag = True
-                                self.cmd = self.all_pose[0]
+                                self.cmd = copy.deepcopy(self.all_pose[0])
                                 self.history_pose[0].append(copy.deepcopy(self.cmd))
                                 self.cmd.frame_id = "world_0"
                                 self.cmd_pub.publish(self.cmd)
                             elif attack_mode == 1.0:
                                 if self.dos_flag:
-                                    self.cmd = self.all_pose[0]
+                                    self.dos_cnt = 0
+                                    self.cmd = copy.deepcopy(self.all_pose[0])
+                                    self.dos_x = self.cmd.x_pos
+                                    self.dos_y = self.cmd.y_pos
+                                    self.dos_z = self.cmd.z_pos
                                     self.dos_flag = False
                                 else:
-                                    self.cmd.stamp = self.all_pose[0].stamp
+                                    self.dos_cnt += 1
+                                    self.cmd.stamp = copy.deepcopy(self.all_pose[0])
+                                    self.cmd.x_pos = self.dos_x
+                                    self.cmd.y_pos = self.dos_y
+                                    self.cmd.z_pos = self.dos_z
+                                    if self.dos_cnt == int(attack_power):
+                                        self.dos_flag = True
                                 self.history_pose[0].append(copy.deepcopy(self.cmd))
                                 self.cmd.frame_id = "world_1"
                                 self.cmd_pub.publish(self.cmd)
                             elif attack_mode == 2.0:
                                 self.dos_flag = True
-                                self.cmd = self.all_pose[0]
+                                self.cmd = copy.deepcopy(self.all_pose[0])
                                 x_limit = abs(self.cmd.x_pos * attack_power)
                                 y_limit = abs(self.cmd.y_pos * attack_power)
                                 z_limit = abs(self.cmd.z_pos * attack_power)
@@ -317,9 +331,9 @@ class Agent:
                             elif attack_mode == 3.0:
                                 self.dos_flag = True
                                 if len(self.history_pose[0]) > 0:
-                                    self.cmd = self.history_pose[0].popleft()
+                                    self.cmd = copy.deepcopy(self.history_pose[0].popleft())
                                 else:
-                                    self.cmd = self.all_pose[0]
+                                    self.cmd = copy.deepcopy(self.all_pose[0])
                                 self.history_pose[0].append(copy.deepcopy(self.all_pose[0]))
                                 self.cmd.frame_id = "world_3"
                                 self.cmd_pub.publish(self.cmd)

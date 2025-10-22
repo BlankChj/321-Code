@@ -53,10 +53,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ubuntu/resilient_ws/src
+CMAKE_SOURCE_DIR = /home/ubuntu/attack_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ubuntu/resilient_ws/build
+CMAKE_BINARY_DIR = /home/ubuntu/attack_ws/build
 
 # Utility rule file for actionlib_msgs_generate_messages_lisp.
 
@@ -74,10 +74,10 @@ vrpn_client_ros/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build: acti
 .PHONY : vrpn_client_ros/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
 
 vrpn_client_ros/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/clean:
-	cd /home/ubuntu/resilient_ws/build/vrpn_client_ros && $(CMAKE_COMMAND) -P CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/cmake_clean.cmake
+	cd /home/ubuntu/attack_ws/build/vrpn_client_ros && $(CMAKE_COMMAND) -P CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/cmake_clean.cmake
 .PHONY : vrpn_client_ros/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/clean
 
 vrpn_client_ros/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/depend:
-	cd /home/ubuntu/resilient_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/resilient_ws/src /home/ubuntu/resilient_ws/src/vrpn_client_ros /home/ubuntu/resilient_ws/build /home/ubuntu/resilient_ws/build/vrpn_client_ros /home/ubuntu/resilient_ws/build/vrpn_client_ros/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ubuntu/attack_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/attack_ws/src /home/ubuntu/attack_ws/src/vrpn_client_ros /home/ubuntu/attack_ws/build /home/ubuntu/attack_ws/build/vrpn_client_ros /home/ubuntu/attack_ws/build/vrpn_client_ros/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : vrpn_client_ros/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/depend
 

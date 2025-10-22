@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/ubuntu/resilient_ws/devel/include/udp_pkg/PositionVelocityAccel.h"
+  "/home/ubuntu/attack_ws/devel/include/udp_pkg/PositionVelocityAccel.h"
   "CMakeFiles/udp_pkg_generate_messages_cpp"
 )
 

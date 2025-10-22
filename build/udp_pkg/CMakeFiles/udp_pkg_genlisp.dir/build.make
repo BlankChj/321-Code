@@ -53,10 +53,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ubuntu/resilient_ws/src
+CMAKE_SOURCE_DIR = /home/ubuntu/attack_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ubuntu/resilient_ws/build
+CMAKE_BINARY_DIR = /home/ubuntu/attack_ws/build
 
 # Utility rule file for udp_pkg_genlisp.
 
@@ -74,10 +74,10 @@ udp_pkg/CMakeFiles/udp_pkg_genlisp.dir/build: udp_pkg_genlisp
 .PHONY : udp_pkg/CMakeFiles/udp_pkg_genlisp.dir/build
 
 udp_pkg/CMakeFiles/udp_pkg_genlisp.dir/clean:
-	cd /home/ubuntu/resilient_ws/build/udp_pkg && $(CMAKE_COMMAND) -P CMakeFiles/udp_pkg_genlisp.dir/cmake_clean.cmake
+	cd /home/ubuntu/attack_ws/build/udp_pkg && $(CMAKE_COMMAND) -P CMakeFiles/udp_pkg_genlisp.dir/cmake_clean.cmake
 .PHONY : udp_pkg/CMakeFiles/udp_pkg_genlisp.dir/clean
 
 udp_pkg/CMakeFiles/udp_pkg_genlisp.dir/depend:
-	cd /home/ubuntu/resilient_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/resilient_ws/src /home/ubuntu/resilient_ws/src/udp_pkg /home/ubuntu/resilient_ws/build /home/ubuntu/resilient_ws/build/udp_pkg /home/ubuntu/resilient_ws/build/udp_pkg/CMakeFiles/udp_pkg_genlisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ubuntu/attack_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/attack_ws/src /home/ubuntu/attack_ws/src/udp_pkg /home/ubuntu/attack_ws/build /home/ubuntu/attack_ws/build/udp_pkg /home/ubuntu/attack_ws/build/udp_pkg/CMakeFiles/udp_pkg_genlisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : udp_pkg/CMakeFiles/udp_pkg_genlisp.dir/depend
 

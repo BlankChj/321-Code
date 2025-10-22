@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/ubuntu/resilient_ws/devel/lib/vrpn_client_ros/vrpn_tracker_node"
-  "/home/ubuntu/resilient_ws/devel/lib/vrpn_client_ros/vrpn_tracker_node.pdb"
+  "/home/ubuntu/attack_ws/devel/lib/vrpn_client_ros/vrpn_tracker_node"
+  "/home/ubuntu/attack_ws/devel/lib/vrpn_client_ros/vrpn_tracker_node.pdb"
   "CMakeFiles/vrpn_tracker_node.dir/src/vrpn_tracker_node.cpp.o"
   "CMakeFiles/vrpn_tracker_node.dir/src/vrpn_tracker_node.cpp.o.d"
 )

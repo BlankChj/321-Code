@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/ubuntu/resilient_ws/devel/share/gennodejs/ros/udp_pkg/msg/PositionVelocityAccel.js"
+  "/home/ubuntu/attack_ws/devel/share/gennodejs/ros/udp_pkg/msg/PositionVelocityAccel.js"
   "CMakeFiles/udp_pkg_generate_messages_nodejs"
 )
 

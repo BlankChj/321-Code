@@ -1,4 +1,4 @@
-prefix=/home/ubuntu/resilient_ws/install
+prefix=/home/ubuntu/attack_ws/install
 
 Name: udp_pkg
 Description: Description of udp_pkg

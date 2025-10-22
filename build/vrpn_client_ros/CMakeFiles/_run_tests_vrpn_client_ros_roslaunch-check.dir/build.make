@@ -53,10 +53,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ubuntu/resilient_ws/src
+CMAKE_SOURCE_DIR = /home/ubuntu/attack_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ubuntu/resilient_ws/build
+CMAKE_BINARY_DIR = /home/ubuntu/attack_ws/build
 
 # Utility rule file for _run_tests_vrpn_client_ros_roslaunch-check.
 
@@ -74,10 +74,10 @@ vrpn_client_ros/CMakeFiles/_run_tests_vrpn_client_ros_roslaunch-check.dir/build:
 .PHONY : vrpn_client_ros/CMakeFiles/_run_tests_vrpn_client_ros_roslaunch-check.dir/build
 
 vrpn_client_ros/CMakeFiles/_run_tests_vrpn_client_ros_roslaunch-check.dir/clean:
-	cd /home/ubuntu/resilient_ws/build/vrpn_client_ros && $(CMAKE_COMMAND) -P CMakeFiles/_run_tests_vrpn_client_ros_roslaunch-check.dir/cmake_clean.cmake
+	cd /home/ubuntu/attack_ws/build/vrpn_client_ros && $(CMAKE_COMMAND) -P CMakeFiles/_run_tests_vrpn_client_ros_roslaunch-check.dir/cmake_clean.cmake
 .PHONY : vrpn_client_ros/CMakeFiles/_run_tests_vrpn_client_ros_roslaunch-check.dir/clean
 
 vrpn_client_ros/CMakeFiles/_run_tests_vrpn_client_ros_roslaunch-check.dir/depend:
-	cd /home/ubuntu/resilient_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/resilient_ws/src /home/ubuntu/resilient_ws/src/vrpn_client_ros /home/ubuntu/resilient_ws/build /home/ubuntu/resilient_ws/build/vrpn_client_ros /home/ubuntu/resilient_ws/build/vrpn_client_ros/CMakeFiles/_run_tests_vrpn_client_ros_roslaunch-check.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ubuntu/attack_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/attack_ws/src /home/ubuntu/attack_ws/src/vrpn_client_ros /home/ubuntu/attack_ws/build /home/ubuntu/attack_ws/build/vrpn_client_ros /home/ubuntu/attack_ws/build/vrpn_client_ros/CMakeFiles/_run_tests_vrpn_client_ros_roslaunch-check.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : vrpn_client_ros/CMakeFiles/_run_tests_vrpn_client_ros_roslaunch-check.dir/depend
 

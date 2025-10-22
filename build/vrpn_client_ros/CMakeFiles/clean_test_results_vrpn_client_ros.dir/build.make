@@ -53,10 +53,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ubuntu/resilient_ws/src
+CMAKE_SOURCE_DIR = /home/ubuntu/attack_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ubuntu/resilient_ws/build
+CMAKE_BINARY_DIR = /home/ubuntu/attack_ws/build
 
 # Utility rule file for clean_test_results_vrpn_client_ros.
 
@@ -67,7 +67,7 @@ include vrpn_client_ros/CMakeFiles/clean_test_results_vrpn_client_ros.dir/compil
 include vrpn_client_ros/CMakeFiles/clean_test_results_vrpn_client_ros.dir/progress.make
 
 vrpn_client_ros/CMakeFiles/clean_test_results_vrpn_client_ros:
-	cd /home/ubuntu/resilient_ws/build/vrpn_client_ros && /usr/bin/python3 /opt/ros/noetic/share/catkin/cmake/test/remove_test_results.py /home/ubuntu/resilient_ws/build/test_results/vrpn_client_ros
+	cd /home/ubuntu/attack_ws/build/vrpn_client_ros && /usr/bin/python3 /opt/ros/noetic/share/catkin/cmake/test/remove_test_results.py /home/ubuntu/attack_ws/build/test_results/vrpn_client_ros
 
 clean_test_results_vrpn_client_ros: vrpn_client_ros/CMakeFiles/clean_test_results_vrpn_client_ros
 clean_test_results_vrpn_client_ros: vrpn_client_ros/CMakeFiles/clean_test_results_vrpn_client_ros.dir/build.make
@@ -78,10 +78,10 @@ vrpn_client_ros/CMakeFiles/clean_test_results_vrpn_client_ros.dir/build: clean_t
 .PHONY : vrpn_client_ros/CMakeFiles/clean_test_results_vrpn_client_ros.dir/build
 
 vrpn_client_ros/CMakeFiles/clean_test_results_vrpn_client_ros.dir/clean:
-	cd /home/ubuntu/resilient_ws/build/vrpn_client_ros && $(CMAKE_COMMAND) -P CMakeFiles/clean_test_results_vrpn_client_ros.dir/cmake_clean.cmake
+	cd /home/ubuntu/attack_ws/build/vrpn_client_ros && $(CMAKE_COMMAND) -P CMakeFiles/clean_test_results_vrpn_client_ros.dir/cmake_clean.cmake
 .PHONY : vrpn_client_ros/CMakeFiles/clean_test_results_vrpn_client_ros.dir/clean
 
 vrpn_client_ros/CMakeFiles/clean_test_results_vrpn_client_ros.dir/depend:
-	cd /home/ubuntu/resilient_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/resilient_ws/src /home/ubuntu/resilient_ws/src/vrpn_client_ros /home/ubuntu/resilient_ws/build /home/ubuntu/resilient_ws/build/vrpn_client_ros /home/ubuntu/resilient_ws/build/vrpn_client_ros/CMakeFiles/clean_test_results_vrpn_client_ros.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ubuntu/attack_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/attack_ws/src /home/ubuntu/attack_ws/src/vrpn_client_ros /home/ubuntu/attack_ws/build /home/ubuntu/attack_ws/build/vrpn_client_ros /home/ubuntu/attack_ws/build/vrpn_client_ros/CMakeFiles/clean_test_results_vrpn_client_ros.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : vrpn_client_ros/CMakeFiles/clean_test_results_vrpn_client_ros.dir/depend
 

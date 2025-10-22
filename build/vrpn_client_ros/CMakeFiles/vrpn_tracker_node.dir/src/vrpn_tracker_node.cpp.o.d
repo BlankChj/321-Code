@@ -1,7 +1,7 @@
 vrpn_client_ros/CMakeFiles/vrpn_tracker_node.dir/src/vrpn_tracker_node.cpp.o: \
- /home/ubuntu/resilient_ws/src/vrpn_client_ros/src/vrpn_tracker_node.cpp \
+ /home/ubuntu/attack_ws/src/vrpn_client_ros/src/vrpn_tracker_node.cpp \
  /usr/include/stdc-predef.h \
- /home/ubuntu/resilient_ws/src/vrpn_client_ros/include/vrpn_client_ros/vrpn_client_ros.h \
+ /home/ubuntu/attack_ws/src/vrpn_client_ros/include/vrpn_client_ros/vrpn_client_ros.h \
  /opt/ros/noetic/include/ros/ros.h /opt/ros/noetic/include/ros/time.h \
  /opt/ros/noetic/include/ros/platform.h /usr/include/c++/9/stdlib.h \
  /usr/include/c++/9/cstdlib \

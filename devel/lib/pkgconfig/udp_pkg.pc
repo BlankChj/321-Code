@@ -1,8 +1,8 @@
-prefix=/home/ubuntu/resilient_ws/devel
+prefix=/home/ubuntu/attack_ws/devel
 
 Name: udp_pkg
 Description: Description of udp_pkg
 Version: 0.0.0
-Cflags: -I/home/ubuntu/resilient_ws/devel/include
+Cflags: -I/home/ubuntu/attack_ws/devel/include
 Libs: -L${prefix}/lib 
 Requires: roscpp rospy std_msgs message_runtime

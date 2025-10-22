@@ -1,4 +1,4 @@
-prefix=/home/ubuntu/resilient_ws/install
+prefix=/home/ubuntu/attack_ws/install
 
 Name: vrpn_client_ros
 Description: Description of vrpn_client_ros

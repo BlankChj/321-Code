@@ -1,7 +1,7 @@
 #include <ros/ros.h>
 #include <geometry_msgs/PoseStamped.h>
 #include <geometry_msgs/TwistStamped.h>
-#include <offboard_control/PosVelAcc.h>
+#include <udp_pkg/PositionVelocityAccel.h>
 #include <armadillo>
 #include <kalman_filter/Vector3Stamped.h>
 class KF {
@@ -47,7 +47,7 @@ class KF {
     public:
         KF(const ros::NodeHandle & nh);
 
-        void mixMsgCallback(const offboard_control::PosVelAcc::ConstPtr& msg);
+        void mixMsgCallback(const udp_pkg::PositionVelocityAccel::ConstPtr& msg);
 
         // double generateGaussianNoise(double mean , double stddev );
         // arma::vec generateGaussianNoise6x1(arma::mat stddev ,arma::vec mean );
