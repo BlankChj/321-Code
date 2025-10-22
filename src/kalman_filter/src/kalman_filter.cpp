@@ -10,5 +10,7 @@ int main(int argc, char** argv){
     while (ros::ok()){
         ros::spinOnce();
         kf.run();
+
+        // std::cin.get();
     }
 }

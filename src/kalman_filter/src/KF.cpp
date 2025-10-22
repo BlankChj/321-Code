@@ -61,11 +61,11 @@ KF::KF(const ros::NodeHandle & nh):
         _Q = diagmat(Qvec);
 
         // measurement noise covariance
-        arma::vec posRVec = {0.1, 0.1, 0.1};
-        arma::vec velRVec = {0.1, 0.1, 0.1};
+        arma::vec posRVec = {0, 0, 0};
+        arma::vec velRVec = {0, 0, 0};
         _yPosR = diagmat(posRVec);
         _yVelR = diagmat(velRVec);
-
+        _yOutR = diagmat(join_cols(posRVec,velRVec));
         _P.eye(6,6);
         _preP.eye(6,6);
 
@@ -99,6 +99,7 @@ void KF::mixMsgCallback(const udp_pkg::PositionVelocityAccel::ConstPtr& msg){
     _timeGap = _timeNow - _timeLast;
     _timeLast = _timeNow;
 
+
     _yPos(0) = msg->x_pos;
     _yPos(1) = msg->y_pos;
     _yPos(2) = msg->z_pos;
@@ -122,6 +123,11 @@ void KF::mixMsgCallback(const udp_pkg::PositionVelocityAccel::ConstPtr& msg){
 
     _B.eye(6,3);
     _B.submat(3,0,5,2) = _timeGap * I3;
+
+    std::cout << "msg callback!" << std::endl;
+    std::cout << "_yPos is " << _yPos << std::endl;
+    std::cout << "_timeGap is " << _timeGap << std::endl;
+
 }
 void KF::predict(){
     _preState = _A * _estState + _B * _yAcc;
@@ -131,6 +137,9 @@ void KF::predict(){
 void KF::update(){
     arma::mat I6(6,6, arma::fill::eye);
 
+    // std::cout << "_K is " << _K << std::endl;
+    // std::cout << "_preP is " << _preP << std::endl;
+    // std::cout << "_yOutR is " << _yOutR << std::endl;
     _z = _yOut - _C * _preState;
     _K = _preP * _C.t() * (_C * _preP * _C.t() + _yOutR).i();
     _estState = _preState + _K * _z;
@@ -153,6 +162,8 @@ void KF::run(){
     velMsg.x = _estState(3);
     velMsg.y = _estState(4);
     velMsg.z = _estState(5);
+
+    // std::cout << "KF Run!" << posMsg << std::endl;
 
     _filterPosPub.publish(posMsg);
     _filterVelPub.publish(velMsg);
