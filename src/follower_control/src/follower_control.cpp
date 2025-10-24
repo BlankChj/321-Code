@@ -214,7 +214,7 @@ int main(int argc, char **argv)
 
 
     //send a few setpoints before starting
-    for(int i = 100; ros::ok() && i > 0; --i){
+    for(int i = 10; ros::ok() && i > 0; --i){
         follower_1_local_pos_pub.publish(desired_pose1);
         // local_vel_pub.publish(cmd_vel);
         ros::spinOnce();
@@ -250,7 +250,6 @@ int main(int argc, char **argv)
     ros::Time now_time = ros::Time::now();
     double time_gap;
     long long count = 0;
-    char last_key;
     while(ros::ok()){
         count += 1;
 
@@ -258,41 +257,28 @@ int main(int argc, char **argv)
         {
             mode_key = get_key;
             get_key = '0';
-            last_key = mode_key;
+            if (mode_key == '1') std::cout << "<<<<<<<< Raw Data >>>>>>>>" << std::endl;
+            if (mode_key == '2') std::cout << "<<<<<<<< KF Filtered Data >>>>>>>>" << std::endl;
+            if (mode_key == '3') std::cout << "<<<<<<<< RKF Filtered Data >>>>>>>>" << std::endl;
+            if (mode_key == '4') std::cout << "<<<<<<<< Security Landing!!! >>>>>>>>" << std::endl;
         }
 
         if (mode_key == '1') {
             desired_pose = desired_pose1;
-            if (last_key != mode_key){
-                std::cout << "<<<<<<<< Raw Data >>>>>>>>" << std::endl;
-                last_key = mode_key;
-            }
         }
         if (mode_key == '2')
         {
             desired_pose = desired_pose2;
-            if (last_key != mode_key){
-                std::cout << "<<<<<<<< KF Filtered Data >>>>>>>>" << std::endl;
-                last_key = mode_key;
-            }
         }
         if (mode_key == '3')
         {
             desired_pose = desired_pose3;
-            if (last_key != mode_key){
-                std::cout << "<<<<<<<< RKF Filtered Data >>>>>>>>" << std::endl;
-                last_key = mode_key;
-            }
         }
         if (mode_key == '4')
         {
             desired_pose.pose.position.x = 0.91;
-            desired_pose.pose.position.x = 0.66;
-            desired_pose.pose.position.x = 0.05;
-            if (last_key != mode_key){
-                std::cout << "<<<<<<<< Security Landing!!! >>>>>>>>" << std::endl;
-                last_key = mode_key;
-            }
+            desired_pose.pose.position.y = 0.66;
+            desired_pose.pose.position.z = 0.05;
         }
         last_pos_error = now_pos_error;
         ros::spinOnce();
