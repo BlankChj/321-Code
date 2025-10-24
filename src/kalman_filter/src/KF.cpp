@@ -45,8 +45,8 @@ KF::KF(const ros::NodeHandle & nh):
     _P(6,6),
 
     _mixMsgSub(_nh.subscribe("/leader/information", 10, &KF::mixMsgCallback, this)),
-    _filterPosPub(_nh.advertise<kalman_filter::Vector3Stamped>("/leader/filter_pos", 10)),
-    _filterVelPub(_nh.advertise<kalman_filter::Vector3Stamped>("/leader/filter_vel", 10))
+    _filterPosPub(_nh.advertise<kalman_filter::Vector3Stamped>("/leader/kf/pos", 10)),
+    _filterVelPub(_nh.advertise<kalman_filter::Vector3Stamped>("/leader/kf/vel", 10))
     {
         _timeLast = 0;
         _timeNow = 0;

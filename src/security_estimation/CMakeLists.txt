@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
   udp_pkg
+  kalman_filter
 )
 
 ## System dependencies are found with CMake's conventions

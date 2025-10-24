@@ -6,11 +6,13 @@ int main(int argc, char** argv){
     ros::NodeHandle nh;
 
     KF kf(nh);
+    ros::Rate lp(20);
 
     while (ros::ok()){
         ros::spinOnce();
         kf.run();
 
-        // std::cin.get();
+        lp.sleep();
+        
     }
 }

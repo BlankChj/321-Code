@@ -7,5 +7,6 @@
 subdirs("gtest")
 subdirs("udp_pkg")
 subdirs("kalman_filter")
+subdirs("follower_control")
 subdirs("security_estimation")
 subdirs("vrpn_client_ros")
