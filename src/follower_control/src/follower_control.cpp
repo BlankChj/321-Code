@@ -250,6 +250,7 @@ int main(int argc, char **argv)
     ros::Time now_time = ros::Time::now();
     double time_gap;
     long long count = 0;
+    char last_key;
     while(ros::ok()){
         count += 1;
 
@@ -257,20 +258,42 @@ int main(int argc, char **argv)
         {
             mode_key = get_key;
             get_key = '0';
+            last_key = mode_key;
         }
 
         if (mode_key == '1') {
             desired_pose = desired_pose1;
+            if (last_key != mode_key){
+                std::cout << "<<<<<<<< Raw Data >>>>>>>>" << std::endl;
+                last_key = mode_key;
+            }
         }
         if (mode_key == '2')
         {
             desired_pose = desired_pose2;
+            if (last_key != mode_key){
+                std::cout << "<<<<<<<< KF Filtered Data >>>>>>>>" << std::endl;
+                last_key = mode_key;
+            }
         }
         if (mode_key == '3')
         {
             desired_pose = desired_pose3;
+            if (last_key != mode_key){
+                std::cout << "<<<<<<<< RKF Filtered Data >>>>>>>>" << std::endl;
+                last_key = mode_key;
+            }
         }
-
+        if (mode_key == '4')
+        {
+            desired_pose.pose.position.x = 0.91;
+            desired_pose.pose.position.x = 0.66;
+            desired_pose.pose.position.x = 0.05;
+            if (last_key != mode_key){
+                std::cout << "<<<<<<<< Security Landing!!! >>>>>>>>" << std::endl;
+                last_key = mode_key;
+            }
+        }
         last_pos_error = now_pos_error;
         ros::spinOnce();
         now_pos_error.x = desired_pose.pose.position.x - follower_1_pose.pose.position.x;
@@ -290,19 +313,19 @@ int main(int argc, char **argv)
         i_pos_error.y += now_pos_error.y * time_gap;
         i_pos_error.z += now_pos_error.z * time_gap;
 
-        if ( current_state.mode != "OFFBOARD"){
-            if( follower_1_set_mode_client.call(offb_set_mode) &&
-                offb_set_mode.response.mode_sent){
-                ROS_INFO("Offboard enabled");
-            }
-        }
+        // if ( current_state.mode != "OFFBOARD"){
+        //     if( follower_1_set_mode_client.call(offb_set_mode) &&
+        //         offb_set_mode.response.mode_sent){
+        //         ROS_INFO("Offboard enabled");
+        //     }
+        // }
 
-        if ( !current_state.armed){
-            if( follower_1_arming_client.call(arm_cmd) &&
-                arm_cmd.response.success){
-                ROS_INFO("Vehicle armed");
-            }
-        }
+        // if ( !current_state.armed){
+        //     if( follower_1_arming_client.call(arm_cmd) &&
+        //         arm_cmd.response.success){
+        //         ROS_INFO("Vehicle armed");
+        //     }
+        // }
 
         cmd_vel.linear.x = k[0][0]* now_pos_error.x + k[0][1] * d_pos_error.x + k[0][2] * i_pos_error.x;
         cmd_vel.linear.y = k[1][0]* now_pos_error.y + k[1][1] * d_pos_error.y + k[1][2] * i_pos_error.y;
