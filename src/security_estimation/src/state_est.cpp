@@ -11,6 +11,8 @@
 #include <message_filters/sync_policies/approximate_time.h>
 #include <std_msgs/Float64.h>
 #include "udp_pkg/PositionVelocityAccel.h"
+#include <kalman_filter/Vector3Stamped.h>
+
 // // ros::Time pos_ros_last_time = ros::Time::now();
 // ros::Time vel_ros_last_time = ros::Time::now();
 
@@ -103,6 +105,7 @@ const double gravity_coefficent = 9.8;
 //mat mid_term(2,2);
 //KalmanData  data_miss_predict = { zeros(2,1) , zeros(2,2)};
 
+double cbTime=0;
 
 //��������
 double bernoulli(double prob)
@@ -997,6 +1000,7 @@ void callback(const udp_pkg::PositionVelocityAccel::ConstPtr &mix_msg)
 
 	temp_now.header.stamp = ros::Time::now();
 	temp_now.pose = pos_now.pose;
+	cbTime = mix_msg->stamp;
 
 	px_now = pos_now.pose.position.x;
 	py_now = pos_now.pose.position.y;
@@ -1086,8 +1090,8 @@ int main(int argc , char **argv)
 	// ros::Publisher pos_kalman_pub = n.advertise<double>("/result/pos_kalman",1);
 
 	// 创建发布者
-	ros::Publisher filter_data_pub = n.advertise<geometry_msgs::PoseStamped>("/z410/fileter_state",1);
-
+	// ros::Publisher filter_data_pub = n.advertise<geometry_msgs::PoseStamped>("/leader/rkf/pos",1);
+	ros::Publisher filter_data_pub = n.advertise<kalman_filter::Vector3Stamped>("/leader/rkf/pos", 1);
 	// // x轴
 	// 	// 传感器数据
 	// ros::Publisher pos_x_miss_sensor_pub = n.advertise<std_msgs::Float64>("/state_estimation/pos_x_miss_sensor",1);
@@ -1689,7 +1693,13 @@ int main(int argc , char **argv)
 			filter_data.pose.position.y = kalmanrobustdata_y.x(0);
 			filter_data.pose.position.z = kalmanrobustdata_z.x(0);
 			filter_data.pose.orientation = temp_now.pose.orientation;
-			filter_data_pub.publish(filter_data);
+
+			kalman_filter::Vector3Stamped rkf_data;
+			rkf_data.time = cbTime;
+			rkf_data.x = kalmanrobustdata_x.x(0);
+			rkf_data.y = kalmanrobustdata_y.x(0);
+			rkf_data.z = kalmanrobustdata_z.x(0);
+			filter_data_pub.publish(rkf_data);
 
 			std::cout <<  filter_data << std::endl;
 

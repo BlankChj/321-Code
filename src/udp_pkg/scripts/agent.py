@@ -172,7 +172,7 @@ class Agent:
         self.ats.registerCallback(self.three_topic_callback)
         self.cmd_pub = rospy.Publisher('/leader/information', PositionVelocityAccel, queue_size=10)
         self.cmd = PositionVelocityAccel()
-        self.history_pose = [deque(maxlen=200) for _ in range(self.num)]
+        self.history_pose = [deque(maxlen=40) for _ in range(self.num)]
 
     def pose_callback(self, msg):
         self.pose = msg

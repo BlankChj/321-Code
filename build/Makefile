@@ -887,6 +887,19 @@ kalman_filter/fast:
 .PHONY : kalman_filter/fast
 
 #=============================================================================
+# Target rules for targets named follower_control
+
+# Build rule for target.
+follower_control: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 follower_control
+.PHONY : follower_control
+
+# fast build rule for target.
+follower_control/fast:
+	$(MAKE) $(MAKESILENT) -f follower_control/CMakeFiles/follower_control.dir/build.make follower_control/CMakeFiles/follower_control.dir/build
+.PHONY : follower_control/fast
+
+#=============================================================================
 # Target rules for targets named security_estimation
 
 # Build rule for target.
@@ -1393,6 +1406,7 @@ help:
 	@echo "... udp_pkg_gennodejs"
 	@echo "... udp_pkg_genpy"
 	@echo "... KF"
+	@echo "... follower_control"
 	@echo "... gmock"
 	@echo "... gmock_main"
 	@echo "... gtest"

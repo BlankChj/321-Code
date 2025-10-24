@@ -10,5 +10,9 @@
         "/home/ubuntu/hnu/gvins/devel/lib/python3/dist-packages",
         "/home/ubuntu/catkin_ws/devel/lib/python3/dist-packages",
         "/opt/ros/noetic/lib/python3/dist-packages"
-    ]
+    ],
+    "files.associations": {
+        "unordered_map": "cpp",
+        "unordered_set": "cpp"
+    }
 }

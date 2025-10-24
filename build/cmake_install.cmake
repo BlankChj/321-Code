@@ -138,6 +138,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/ubuntu/attack_ws/build/gtest/cmake_install.cmake")
   include("/home/ubuntu/attack_ws/build/udp_pkg/cmake_install.cmake")
   include("/home/ubuntu/attack_ws/build/kalman_filter/cmake_install.cmake")
+  include("/home/ubuntu/attack_ws/build/follower_control/cmake_install.cmake")
   include("/home/ubuntu/attack_ws/build/security_estimation/cmake_install.cmake")
   include("/home/ubuntu/attack_ws/build/vrpn_client_ros/cmake_install.cmake")
 
