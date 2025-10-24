@@ -8,9 +8,10 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/ubuntu/attack_ws/devel:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/ubuntu/attack_ws/devel/lib:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH='/home/ubuntu/attack_ws/devel/lib:/opt/ros/noetic/lib:/usr/local/cuda-12.2/lib64:/home/ubuntu/PX4_Firmware/build/px4_sitl_default/build_gazebo'
+export PATH='/opt/ros/noetic/bin:/usr/local/cuda-12.2/bin:/home/ubuntu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'
 export PKG_CONFIG_PATH="/home/ubuntu/attack_ws/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/ubuntu/attack_ws/build'
 export PYTHONPATH="/home/ubuntu/attack_ws/devel/lib/python3/dist-packages:$PYTHONPATH"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/ubuntu/attack_ws/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/ubuntu/attack_ws/src:$ROS_PACKAGE_PATH"
+export ROSLISP_PACKAGE_DIRECTORIES='/home/ubuntu/attack_ws/devel/share/common-lisp'
+export ROS_PACKAGE_PATH='/home/ubuntu/attack_ws/src:/opt/ros/noetic/share'
