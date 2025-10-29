@@ -322,9 +322,12 @@ class Agent:
                                 x_limit = abs(self.cmd.x_pos * attack_power)
                                 y_limit = abs(self.cmd.y_pos * attack_power)
                                 z_limit = abs(self.cmd.z_pos * attack_power)
-                                self.cmd.x_pos = self.cmd.x_pos + np.random.uniform(-x_limit, x_limit)
-                                self.cmd.y_pos = self.cmd.y_pos + np.random.uniform(-y_limit, y_limit)
-                                self.cmd.z_pos = self.cmd.z_pos + np.random.uniform(-z_limit, z_limit)
+                                x_eps = np.random.uniform(-x_limit, x_limit)
+                                y_eps = np.random.uniform(-y_limit, y_limit)
+                                z_eps = np.random.uniform(-z_limit, z_limit)
+                                self.cmd.x_pos = self.cmd.x_pos + x_eps + np.sign(x_eps) * 0.1
+                                self.cmd.y_pos = self.cmd.y_pos + y_eps + np.sign(y_eps) * 0.1
+                                self.cmd.z_pos = self.cmd.z_pos + z_eps + np.sign(z_eps) * 0.1
                                 self.history_pose[0].append(copy.deepcopy(self.cmd))
                                 self.cmd.frame_id = "world_2"
                                 self.cmd_pub.publish(self.cmd)

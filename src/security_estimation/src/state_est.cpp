@@ -163,7 +163,8 @@ double bernoulli(double prob)
  double calculate_acc(double pre_acc)
  {
 
-		double acc = pre_acc - gravity_coefficent;
+	//  double acc = pre_acc - gravity_coefficent;
+	 double acc = pre_acc + gravity_coefficent;
 
 	 return acc;
  }
@@ -990,10 +991,14 @@ void callback(const udp_pkg::PositionVelocityAccel::ConstPtr &mix_msg)
 	acc_body.linear_acceleration.y = mix_msg->y_acc;
 	acc_body.linear_acceleration.z = mix_msg->z_acc;
 
-	acc_body.orientation.x = 1;
+	// acc_body.orientation.x = 1;
+	// acc_body.orientation.y = 0;
+	// acc_body.orientation.z = 0;
+	// acc_body.orientation.w = 0;
+	acc_body.orientation.x = 0;
 	acc_body.orientation.y = 0;
 	acc_body.orientation.z = 0;
-	acc_body.orientation.w = 0;
+	acc_body.orientation.w = 1;
 	// geometry_msgs::PoseStamped pos_now = *pos_msg;
 	// geometry_msgs::TwistStamped vel_now = *vel_msg;
 	// sensor_msgs::Imu acc_body = *acc_msg;
