@@ -95,7 +95,7 @@ class RKF():
             temp2 = np.hstack((self.zero_mat, self.R_x))
             S_square = np.vstack((temp1, temp2))
             S_square += self.eye_lamb
-            S_inv = np.linalg.inv(np.matrix(np.linalg.cholesky(S_square)).T)
+            S_inv = np.linalg.inv(np.matrix(np.linalg.cholesky(S_square)))
             X_temp = np.vstack((self.eye_mat, self.C))
             X = S_inv * X_temp
             Y_temp = np.vstack((self.x_pre, self.out_x))
@@ -125,7 +125,7 @@ class RKF():
             temp2 = np.hstack((self.zero_mat, self.R_y))
             S_square = np.vstack((temp1, temp2))
             S_square += self.eye_lamb
-            S_inv = np.linalg.inv(np.matrix(np.linalg.cholesky(S_square)).T)
+            S_inv = np.linalg.inv(np.matrix(np.linalg.cholesky(S_square)))
             X_temp = np.vstack((self.eye_mat, self.C))
             X = S_inv * X_temp
             Y_temp = np.vstack((self.y_pre, self.out_y))
@@ -155,7 +155,7 @@ class RKF():
             temp2 = np.hstack((self.zero_mat, self.R_z))
             S_square = np.vstack((temp1, temp2))
             S_square += self.eye_lamb
-            S_inv = np.linalg.inv(np.matrix(np.linalg.cholesky(S_square)).T)
+            S_inv = np.linalg.inv(np.matrix(np.linalg.cholesky(S_square)))
             X_temp = np.vstack((self.eye_mat, self.C))
             X = S_inv * X_temp
             Y_temp = np.vstack((self.z_pre, self.out_z))
@@ -183,8 +183,7 @@ class RKF():
         if self.not_first:
             now_time = rospy.Time.now().to_sec()
             self.time_gap = now_time - self.last_time
-            # self.Rot = self.quaternion_to_rotation(ox_now, oy_now, oz_now, ow_now)
-            self.Rot = self.quaternion_to_rotation(1, 0, 0, 0)
+            self.Rot = self.quaternion_to_rotation(ox_now, oy_now, oz_now, ow_now)
             self.x_acc = self.Rot[0, 0] * ax_now + self.Rot[0, 1] * ay_now + self.Rot[0, 2] * az_now
             self.y_acc = self.Rot[1, 0] * ax_now + self.Rot[1, 1] * ay_now + self.Rot[1, 2] * az_now
             self.z_acc = self.Rot[2, 0] * ax_now + self.Rot[2, 1] * ay_now + self.Rot[2, 2] * az_now - self.gravity_coefficent
@@ -325,7 +324,7 @@ class Detection():
         row = [[stamp, dt, x_pos, y_pos, z_pos, dx, dy, dz, x_ori, y_ori, z_ori, w_ori]]
         data = pd.DataFrame(row, columns=self.feature_cols)
         pred_label = self.model.predict(data)[0]
-        return pred_label == 2
+        return pred_label == 1
     
     def predict_model(self, info):
         if self.label == 3:
@@ -374,5 +373,6 @@ class Detection():
 
 if __name__ == "__main__":
     model_path = "xgboost_model.pkl"
-    detection = Detection()  # detection = Detection(model_path, True)
+    detection = Detection()
+    # detection = Detection(model_path, True)
     detection.main()
