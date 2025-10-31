@@ -49,9 +49,9 @@ class RealTime3DPlotter:
         # self.ax.view_init(elev=30, azim=45)
         
         # 初始化坐标轴范围
-        self.x_min, self.x_max = -3, 3
-        self.y_min, self.y_max = -2.5,3
-        self.z_min, self.z_max = 0, 2
+        self.x_min, self.x_max = -1.5, 1.5
+        self.y_min, self.y_max = -1.5, 1.5
+        self.z_min, self.z_max = 0, 1
         
         # 设置初始坐标轴范围
         self.ax.set_xlim(self.x_min, self.x_max)

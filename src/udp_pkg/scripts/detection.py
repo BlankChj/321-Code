@@ -368,6 +368,7 @@ class Detection():
                         self.fake = False
                         self.label = 3
                     print(f"-----------------------------\n 无攻击检测准确率为:{(self.pre_cnt[0] / self.real_cnt[0]) if self.real_cnt[0] != 0 else 1.0}\n Dos attack 检测准确率为:{(self.pre_cnt[1] / self.real_cnt[1]) if self.real_cnt[1] != 0 else 1.0}\n FDI attack检测准确率为:{(self.pre_cnt[2] / self.real_cnt[2]) if self.real_cnt[2] != 0 else 1.0}\n replay attack检测准确率为:{(self.pre_cnt[3] / self.real_cnt[3]) if self.real_cnt[3] != 0 else 1.0}")
+                    print(f"当前标签为:{self.label}")
             except KeyboardInterrupt:
                 break
 

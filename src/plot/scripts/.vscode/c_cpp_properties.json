@@ -1,0 +1,28 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/chj/catkin_ws/devel/include/**",
+        "/home/chj/drone_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/chj/drone_ws/src/attack/include/**",
+        "/home/chj/drone_ws/src/data_process/include/**",
+        "/home/chj/catkin_ws/src/gazebo_ros_pkgs/gazebo_plugins/include/**",
+        "/home/chj/catkin_ws/src/gazebo_ros_pkgs/gazebo_ros/include/**",
+        "/home/chj/catkin_ws/src/gazebo_ros_pkgs/gazebo_ros_control/include/**",
+        "/home/chj/drone_ws/src/plot/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
