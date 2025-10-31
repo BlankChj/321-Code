@@ -23,6 +23,10 @@ class RealTime3DPlotter:
         self.y2_data = [] 
         self.z2_data = []
 
+        self.x3_data = []
+        self.y3_data = [] 
+        self.z3_data = []
+
         # 线程锁，确保数据安全
         self.lock = threading.Lock()
         
@@ -32,11 +36,15 @@ class RealTime3DPlotter:
         
         # 初始化3D轨迹线 - 使用空numpy数组
         # 单元素元组解包需加,否则会被识别为括号
-        self.trajectory_line1, = self.ax.plot([], [], [], 'b-', linewidth=2, alpha=0.7, label='Leader Trajectory')
+        self.trajectory_line1, = self.ax.plot([], [], [], 'r-', linewidth=2, alpha=0.7, label='Leader Trajectory')
         self.current_point1, = self.ax.plot([], [], [], 'ro', markersize=8, label='Leader Position')
         
-        self.trajectory_line2, = self.ax.plot([], [], [], 'g-', linewidth=2, alpha=0.7, label='Follower Trajectory')
-        self.current_point2, = self.ax.plot([], [], [], 'yo', markersize=8, label='Follower Position')
+        self.trajectory_line2, = self.ax.plot([], [], [], 'g-', linewidth=2, alpha=0.7, label='Follower1 Trajectory')
+        self.current_point2, = self.ax.plot([], [], [], 'yo', markersize=8, label='Follower1 Position')
+
+        self.trajectory_line3, = self.ax.plot([], [], [], 'b-', linewidth=2, alpha=0.7, label='Follower2 Trajectory')
+        self.current_point3, = self.ax.plot([], [], [], 'ko', markersize=8, label='Follower2 Position')
+
         # 3D图形设置
         self.ax.set_xlabel('X (m)')
         self.ax.set_ylabel('Y (m)')
@@ -63,9 +71,11 @@ class RealTime3DPlotter:
 
         self.subscriber2 = message_filters.Subscriber('/vrpn_client_node/iris4/pose', PoseStamped)
 
+        self.subscriber3 = message_filters.Subscriber('/vrpn_client_node/iris7/pose', PoseStamped)
+
         # 同步订阅器
         ats = message_filters.ApproximateTimeSynchronizer(
-            [self.subscriber1, self.subscriber2], 
+            [self.subscriber1, self.subscriber2, self.subscriber3], 
             queue_size=10,
             slop=0.1  # 100ms 时间容差
         )
@@ -76,7 +86,7 @@ class RealTime3DPlotter:
         
         rospy.loginfo("3D Real-time Trajectory Plotter Started")
     
-    def approximate_sync_callback(self, leader_msg, follower_msg):
+    def approximate_sync_callback(self, leader_msg, follower1_msg, follower2_msg):
         """PoseStamped message callback - extract only XYZ coordinates"""
         with self.lock:
             # Extract position data
@@ -84,9 +94,13 @@ class RealTime3DPlotter:
             y1 = leader_msg.pose.position.y
             z1 = leader_msg.pose.position.z
             
-            x2 = follower_msg.pose.position.x
-            y2 = follower_msg.pose.position.y
-            z2 = follower_msg.pose.position.z
+            x2 = follower1_msg.pose.position.x
+            y2 = follower1_msg.pose.position.y
+            z2 = follower1_msg.pose.position.z
+
+            x3 = follower2_msg.pose.position.x
+            y3 = follower2_msg.pose.position.y
+            z3 = follower2_msg.pose.position.z
 
             # Add new data
             self.x1_data.append(x1)
@@ -97,6 +111,10 @@ class RealTime3DPlotter:
             self.y2_data.append(y2)
             self.z2_data.append(z2) 
 
+            self.x3_data.append(x3)
+            self.y3_data.append(y3)
+            self.z3_data.append(z3) 
+
             # Keep data length within maximum
             if len(self.x1_data) > self.max_data_points:
                 self.x1_data.pop(0)
@@ -104,7 +122,10 @@ class RealTime3DPlotter:
                 self.z1_data.pop(0)
                 self.x2_data.pop(0)
                 self.y2_data.pop(0)
-                self.z2_data.pop(0)          
+                self.z2_data.pop(0)    
+                self.x3_data.pop(0)
+                self.y3_data.pop(0)
+                self.z3_data.pop(0)       
             # # Print latest data every 30 data points
             # if len(self.x_data) % 30 == 0:
             #     rospy.loginfo(f"Current Position - X: {x:.2f}m, Y: {y:.2f}m, Z: {z:.2f}m")
@@ -120,13 +141,20 @@ class RealTime3DPlotter:
 
                 x2_array = np.array(self.x2_data)
                 y2_array = np.array(self.y2_data)
-                z2_array = np.array(self.z2_data)              
+                z2_array = np.array(self.z2_data)  
+
+                x3_array = np.array(self.x3_data)
+                y3_array = np.array(self.y3_data)
+                z3_array = np.array(self.z3_data)              
                 # Update trajectory line - 确保使用numpy数组
                 self.trajectory_line1.set_data(x1_array, y1_array)
                 self.trajectory_line1.set_3d_properties(z1_array)
                 
                 self.trajectory_line2.set_data(x2_array, y2_array)
                 self.trajectory_line2.set_3d_properties(z2_array)
+
+                self.trajectory_line2.set_data(x3_array, y3_array)
+                self.trajectory_line2.set_3d_properties(z3_array)
 
                 # Update current position point - 使用numpy数组而不是列表
                 current_x1 = np.array([self.x1_data[-1]])
@@ -137,11 +165,18 @@ class RealTime3DPlotter:
                 current_y2 = np.array([self.y2_data[-1]])
                 current_z2 = np.array([self.z2_data[-1]])
 
+                current_x3 = np.array([self.x3_data[-1]])
+                current_y3 = np.array([self.y3_data[-1]])
+                current_z3 = np.array([self.z3_data[-1]])
+
                 self.current_point1.set_data(current_x1, current_y1)
                 self.current_point1.set_3d_properties(current_z1)
                 
                 self.current_point2.set_data(current_x2, current_y2)
                 self.current_point2.set_3d_properties(current_z2)
+
+                self.current_point3.set_data(current_x3, current_y3)
+                self.current_point3.set_3d_properties(current_z3)
 
                 # Dynamically adjust axis ranges
                 if len(self.x1_data) > 1:

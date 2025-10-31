@@ -55,7 +55,7 @@ class Formation():
                     self.cmd_pose.pose.position.x = self.x_list[ii]
                     self.cmd_pose.pose.position.y = self.y_list[ii]
                     if mode == 0 or mode == 1:
-                        self.cmd_pose.pose.position.z = 0.8
+                        self.cmd_pose.pose.position.z = 0.5
                     elif mode == 2:
                         self.cmd_pose.pose.position.z = 0.05
                     self.cmd_pub.publish(self.cmd_pose)

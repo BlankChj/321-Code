@@ -72,6 +72,7 @@ if __name__ == "__main__":
                 mode = 2
             if mode == 1:
                 pos_id = (pos_id + 1) % pos_num
+            print(f"mode = {mode}, pos_id = {pos_id}")
             message = struct.pack('2i', mode, pos_id)
             for ip in server_ip:
                 udp_client(ip, message)
