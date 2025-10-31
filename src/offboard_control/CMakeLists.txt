@@ -8,9 +8,7 @@ project(offboard_control)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  geometry_msgs
   roscpp
-  rospy
   std_msgs
 )
 
@@ -71,7 +69,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   geometry_msgs#   std_msgs
+#   std_msgs
 # )
 
 ################################################
@@ -106,7 +104,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES offboard_control
-#  CATKIN_DEPENDS geometry_msgs roscpp rospy std_msgs
+#  CATKIN_DEPENDS roscpp std_msgs
 #  DEPENDS system_lib
 )
 
@@ -151,10 +149,14 @@ include_directories(
 #   ${catkin_LIBRARIES}
 # )
 
-add_executable(${PROJECT_NAME} src/offboard.cpp)
-target_link_libraries(${PROJECT_NAME}
-  ${catkin_LIBRARIES}
-)
+add_executable(attitude_offboard src/attitude_offboard.cpp)
+#add_executable(send_epose src/send_epose.cpp)
+add_executable(offboard src/offboard.cpp)
+#add_executable(plot src/plot.cpp)
+target_link_libraries(attitude_offboard   ${catkin_LIBRARIES})
+#target_link_libraries(send_epose   ${catkin_LIBRARIES})
+target_link_libraries(offboard   ${catkin_LIBRARIES})
+#target_link_libraries(plot   ${catkin_LIBRARIES})
 
 #############
 ## Install ##

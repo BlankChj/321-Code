@@ -1,0 +1,26 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/opt/ros/noetic/include/**",
+        "/home/ubuntu/attack_ws/devel/include/**",
+        "/home/ubuntu/attack_ws/src/kalman_filter/include/**",
+        "/home/ubuntu/attack_ws/src/offboard_control/include/**",
+        "/home/ubuntu/attack_ws/src/security_estimation/include/**",
+        "/home/ubuntu/attack_ws/src/udp_pkg/include/**",
+        "/home/ubuntu/attack_ws/src/vrpn_client_ros/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
