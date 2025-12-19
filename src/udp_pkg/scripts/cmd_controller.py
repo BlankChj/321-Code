@@ -60,19 +60,38 @@ if __name__ == "__main__":
     
     mode = 0
     pos_id = 0
+    dos_cnt = 0
+    define_dos = 0
     pos_num = int(sys.argv[1])
     
     try:
         while running:
-            if key == '0':
+            if key == '0':  # 飞到固定位置
                 mode = 0
-            elif key == '1':
+            elif key == '1':  # 原地降落
                 mode = 1
-            elif key == '2':
+            elif key == '2':  # 普通绕园
                 mode = 2
-            if mode == 1:
+            elif key == '3':  # DoS攻击绕园
+                mode = 3
+            elif key == '4':  # 抵御DoS攻击绕园
+                mode = 4
+            elif key == '5':  # FDI攻击绕园
+                mode = 5
+            elif key == '6':  # 抵御FDI攻击绕园
+                mode = 6
+            if mode == 2:
                 pos_id = (pos_id + 1) % pos_num
-            print(f"mode = {mode}, pos_id = {pos_id}")
+            elif mode == 3:
+                dos_cnt += 1
+                if dos_cnt == 100:
+                    dos_cnt = 0
+                    pos_id = (pos_id + 1) % pos_num
+            elif mode == 4:
+                define_dos += 1
+                if define_dos == 10:
+                    define_dos = 0
+                    pos_id = (pos_id + 1) % pos_num
             message = struct.pack('2i', mode, pos_id)
             for ip in server_ip:
                 udp_client(ip, message)

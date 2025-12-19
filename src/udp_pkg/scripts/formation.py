@@ -52,12 +52,22 @@ class Formation():
             try:
                 with locks[0]:
                     ii = (self.bias + pos_id) % self.pos_num
-                    self.cmd_pose.pose.position.x = self.x_list[ii]
-                    self.cmd_pose.pose.position.y = self.y_list[ii]
-                    if mode == 0 or mode == 1:
-                        self.cmd_pose.pose.position.z = 0.5
-                    elif mode == 2:
+                    if mode == 1:
+                        self.cmd_pose.pose.position.x = self.x_list[ii]
+                        self.cmd_pose.pose.position.y = self.y_list[ii]
                         self.cmd_pose.pose.position.z = 0.05
+                    elif mode == 5:
+                        self.cmd_pose.pose.position.x = self.x_list[ii] + np.random.uniform(-0.1, 0.1)
+                        self.cmd_pose.pose.position.y = self.y_list[ii] + np.random.uniform(-0.1, 0.1)
+                        self.cmd_pose.pose.position.z = 0.5 + np.random.uniform(-0.1, 0.1)
+                    elif mode == 6:
+                        self.cmd_pose.pose.position.x = self.x_list[ii] + np.random.uniform(-0.01, 0.01)
+                        self.cmd_pose.pose.position.y = self.y_list[ii] + np.random.uniform(-0.01, 0.01)
+                        self.cmd_pose.pose.position.z = 0.5 + np.random.uniform(-0.01, 0.01)
+                    else:
+                        self.cmd_pose.pose.position.x = self.x_list[ii]
+                        self.cmd_pose.pose.position.y = self.y_list[ii]
+                        self.cmd_pose.pose.position.z = 0.5
                     self.cmd_pub.publish(self.cmd_pose)
             except KeyboardInterrupt:
                 break

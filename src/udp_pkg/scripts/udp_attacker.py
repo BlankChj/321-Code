@@ -3,15 +3,17 @@ import struct
 import numpy as np
 import sys
 
-def udp_client(server_host, message, server_port=8100):
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    s.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, 8192)
-    s.setblocking(False)
-    s.sendto(message, (server_host, server_port))
+def udp_client(server_host_list, message, server_port=8100):
+    for server_host in server_host_list:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, 8192)
+        s.setblocking(False)
+        s.sendto(message, (server_host, server_port))
 
 
 if __name__ == "__main__":
-    server_ip = input("请输入攻击的IP地址: ")
+    server_ip = input("请输入攻击的IP地址(多个IP用空格连接): ")
+    server_ip = server_ip.split(' ')
     while True:
         try:
             print("0:stop attack, 1:DoS attack, 2:FDI attack, 3:replay attack")
