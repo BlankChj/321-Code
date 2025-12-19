@@ -36,10 +36,13 @@ struct Position
 //     {0,0,3},
 //     {0,0,0}
 // };
-double Re_Location[3][2] = {
-    {0, 3},
-    {0, 0},
-    {0, 0}};
+// double Re_Location[3][2] = {
+//     {0, 3},
+//     {0, 0},
+//     {0, 0}};
+
+double Re_Location[3] = {0,0,0};
+
 
 // k is the pid Parameter 
 //     P    D   I
@@ -61,9 +64,9 @@ void leader_pose_cb_udp(const udp_pkg::PositionVelocityAccel::ConstPtr &msg)
     udp_pkg::PositionVelocityAccel pose = *msg;
     desired_pose1.header.stamp = ros::Time::now();
     desired_pose1.header.seq = 0;
-    desired_pose1.pose.position.x = pose.x_pos + Re_Location[0][1];
-    desired_pose1.pose.position.y = pose.y_pos + Re_Location[1][1];
-    desired_pose1.pose.position.z = pose.z_pos + Re_Location[2][1];
+    desired_pose1.pose.position.x = pose.x_pos + Re_Location[0];
+    desired_pose1.pose.position.y = pose.y_pos + Re_Location[1];
+    desired_pose1.pose.position.z = pose.z_pos + Re_Location[2];
 }
 
 void leader_pose_cb_kf(const kalman_filter::Vector3Stamped::ConstPtr &msg)
@@ -71,9 +74,9 @@ void leader_pose_cb_kf(const kalman_filter::Vector3Stamped::ConstPtr &msg)
     kalman_filter::Vector3Stamped pose = *msg;
     desired_pose2.header.stamp =ros::Time::now();
     desired_pose2.header.seq = 0;
-    desired_pose2.pose.position.x = pose.x + Re_Location[0][1];
-    desired_pose2.pose.position.y = pose.y + Re_Location[1][1];
-    desired_pose2.pose.position.z = pose.z + Re_Location[2][1];
+    desired_pose2.pose.position.x = pose.x + Re_Location[0];
+    desired_pose2.pose.position.y = pose.y + Re_Location[1];
+    desired_pose2.pose.position.z = pose.z + Re_Location[2];
 }
 
 void leader_pose_cb_rkf(const kalman_filter::Vector3Stamped::ConstPtr &msg)
@@ -81,9 +84,9 @@ void leader_pose_cb_rkf(const kalman_filter::Vector3Stamped::ConstPtr &msg)
     kalman_filter::Vector3Stamped pose = *msg;
     desired_pose3.header.stamp = ros::Time::now();
     desired_pose3.header.seq = 0;
-    desired_pose3.pose.position.x = pose.x + Re_Location[0][1];
-    desired_pose3.pose.position.y = pose.y + Re_Location[1][1];
-    desired_pose3.pose.position.z = pose.z + Re_Location[2][1];
+    desired_pose3.pose.position.x = pose.x + Re_Location[0];
+    desired_pose3.pose.position.y = pose.y + Re_Location[1];
+    desired_pose3.pose.position.z = pose.z + Re_Location[2];
 }
 
 nav_msgs::Path nav_path;
@@ -152,7 +155,10 @@ int main(int argc, char **argv)
 
     ros::init(argc, argv, "follower_1_node");
     ros::NodeHandle nh;
-    
+    Re_Location[0]=argv[std::stod(argv[1])];
+    Re_Location[1]=argv[std::stod(argv[2])];
+    Re_Location[2] = argv[std::stod(argv[3])];
+
     nav_path.header.frame_id= "world";
     nav_path.header.stamp = ros::Time::now();
     track_path.header.frame_id= "world";
