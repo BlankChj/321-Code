@@ -536,6 +536,9 @@ kalman_filter_SOURCE_DIR:STATIC=/home/ubuntu/attack_ws/src/kalman_filter
 //Path to a library.
 lib:FILEPATH=/opt/ros/noetic/lib/libtf2.so
 
+//The directory containing a CMake configuration file for matplotlib.
+matplotlib_DIR:PATH=matplotlib_DIR-NOTFOUND
+
 //The directory containing a CMake configuration file for message_filters.
 message_filters_DIR:PATH=/opt/ros/noetic/share/message_filters/cmake
 
@@ -544,6 +547,24 @@ message_generation_DIR:PATH=/opt/ros/noetic/share/message_generation/cmake
 
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/noetic/share/message_runtime/cmake
+
+//Value Computed by CMake
+offboard_control_BINARY_DIR:STATIC=/home/ubuntu/attack_ws/build/offboard_control
+
+//Value Computed by CMake
+offboard_control_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+offboard_control_SOURCE_DIR:STATIC=/home/ubuntu/attack_ws/src/offboard_control
+
+//Value Computed by CMake
+plot_BINARY_DIR:STATIC=/home/ubuntu/attack_ws/build/plot
+
+//Value Computed by CMake
+plot_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+plot_SOURCE_DIR:STATIC=/home/ubuntu/attack_ws/src/plot
 
 //The directory containing a CMake configuration file for quatlib.
 quatlib_DIR:PATH=/opt/ros/noetic/share/quatlib/cmake
@@ -777,7 +798,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=9
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

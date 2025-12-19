@@ -136,6 +136,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/ubuntu/attack_ws/build/gtest/cmake_install.cmake")
+  include("/home/ubuntu/attack_ws/build/offboard_control/cmake_install.cmake")
   include("/home/ubuntu/attack_ws/build/udp_pkg/cmake_install.cmake")
   include("/home/ubuntu/attack_ws/build/kalman_filter/cmake_install.cmake")
   include("/home/ubuntu/attack_ws/build/follower_control/cmake_install.cmake")
