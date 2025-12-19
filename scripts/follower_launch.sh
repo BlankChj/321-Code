@@ -20,10 +20,10 @@ sleep 2
 gnome-terminal	--tab --title="localPose_display" -- bash -c " rostopic echo /mavros/local_position/pose"
 sleep 2
 
-gnome-terminal	--tab --title="udp_pkg" -- bash -c "cd ~/$pkgRoot/src/udp_pkg/scripts;echo Please Run the Udp Pkg; exec bash"
+gnome-terminal	--tab --title="udp_pkg" -- bash -c "cd ~/$pkgRoot/src/udp_pkg/scripts;source ~/$pkgRoot/devel/setup.sh;echo Please Run the Udp Pkg; exec bash -i"
 
 gnome-terminal	--tab --title="kf_pkg" -- bash -c "cd ~/$pkgRoot ;source ~/$pkgRoot/devel/setup.sh;rosrun kalman_filter kalman_filter"
 
 gnome-terminal	--tab --title="rkf_pkg" -- bash -c "cd ~/$pkgRoot ;source ~/$pkgRoot/devel/setup.sh;rosrun security_estimation security_estimation"
 
-gnome-terminal	--tab --title="control_pkg" -- bash -c "cd ~/$pkgRoot ;source ~/$pkgRoot/devel/setup.sh;echo Please Run the Pkg; exec bash"
+gnome-terminal	--tab --title="control_pkg" -- bash -c "cd ~/$pkgRoot ;source ~/$pkgRoot/devel/setup.sh;echo Please Run the Follower Pkg; exec bash -i"

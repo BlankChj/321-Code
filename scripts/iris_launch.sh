@@ -20,6 +20,6 @@ sleep 2
 gnome-terminal	--tab --title="localPose_display" -- bash -c " rostopic echo /mavros/local_position/pose"
 sleep 2
 
-gnome-terminal	--tab --title="udp_pkg" -- bash -c "cd ~/$pkgRoot/src/udp_pkg/scripts;echo Please Run the Udp Pkg; exec bash"
+gnome-terminal	--tab --title="udp_pkg" -- bash -c "cd ~/$pkgRoot/src/udp_pkg/scripts;echo Please Run the Udp Pkg; exec bas -i"
 
-gnome-terminal	--tab --title="control_pkg" -- bash -c "cd ~/$pkgRoot ;source ~/$pkgRoot/devel/setup.sh;echo Please Run the Control Pkg; exec bash"
+gnome-terminal	--tab --title="control_pkg" -- bash -c "cd ~/$pkgRoot ;source ~/$pkgRoot/devel/setup.sh;echo Please Run the Control Pkg; exec bash -i"
