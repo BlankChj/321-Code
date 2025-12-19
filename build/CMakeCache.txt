@@ -337,7 +337,7 @@ GTEST_MAIN_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libgtest_main.a
 GTEST_MAIN_LIBRARY_DEBUG:FILEPATH=GTEST_MAIN_LIBRARY_DEBUG-NOTFOUND
 
 //The directory containing a CMake configuration file for GTest.
-GTest_DIR:PATH=GTest_DIR-NOTFOUND
+GTest_DIR:PATH=/home/ubuntu/miniconda3/lib/cmake/GTest
 
 //Enable installation of googletest. (Projects embedding googletest
 // may want to turn this OFF.)
@@ -798,7 +798,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=11
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

@@ -6,6 +6,7 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
 subdirs("offboard_control")
+subdirs("plot")
 subdirs("udp_pkg")
 subdirs("kalman_filter")
 subdirs("follower_control")

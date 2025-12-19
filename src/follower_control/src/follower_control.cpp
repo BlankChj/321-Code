@@ -155,9 +155,9 @@ int main(int argc, char **argv)
 
     ros::init(argc, argv, "follower_1_node");
     ros::NodeHandle nh;
-    Re_Location[0]=argv[std::stod(argv[1])];
-    Re_Location[1]=argv[std::stod(argv[2])];
-    Re_Location[2] = argv[std::stod(argv[3])];
+    Re_Location[0]=std::stod(argv[1]);
+    Re_Location[1]=std::stod(argv[2]);
+    Re_Location[2] = std::stod(argv[3]);
 
     nav_path.header.frame_id= "world";
     nav_path.header.stamp = ros::Time::now();

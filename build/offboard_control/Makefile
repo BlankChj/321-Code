@@ -172,146 +172,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-offboard_control/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 offboard_control/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-.PHONY : offboard_control/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_cpp: offboard_control/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-.PHONY : geometry_msgs_generate_messages_cpp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_cpp/fast:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make offboard_control/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-.PHONY : geometry_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-offboard_control/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 offboard_control/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-.PHONY : offboard_control/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_eus: offboard_control/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-.PHONY : geometry_msgs_generate_messages_eus
-
-# fast build rule for target.
-geometry_msgs_generate_messages_eus/fast:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make offboard_control/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
-.PHONY : geometry_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-offboard_control/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 offboard_control/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-.PHONY : offboard_control/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_lisp: offboard_control/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-.PHONY : geometry_msgs_generate_messages_lisp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_lisp/fast:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make offboard_control/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
-.PHONY : geometry_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-offboard_control/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 offboard_control/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-.PHONY : offboard_control/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_nodejs: offboard_control/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-.PHONY : geometry_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-geometry_msgs_generate_messages_nodejs/fast:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make offboard_control/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
-.PHONY : geometry_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-offboard_control/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 offboard_control/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-.PHONY : offboard_control/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_py: offboard_control/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-.PHONY : geometry_msgs_generate_messages_py
-
-# fast build rule for target.
-geometry_msgs_generate_messages_py/fast:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make offboard_control/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-.PHONY : geometry_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-offboard_control/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 offboard_control/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-.PHONY : offboard_control/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_cpp: offboard_control/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-.PHONY : std_msgs_generate_messages_cpp
-
-# fast build rule for target.
-std_msgs_generate_messages_cpp/fast:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make offboard_control/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-.PHONY : std_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-offboard_control/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 offboard_control/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-.PHONY : offboard_control/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_eus: offboard_control/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-.PHONY : std_msgs_generate_messages_eus
-
-# fast build rule for target.
-std_msgs_generate_messages_eus/fast:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make offboard_control/CMakeFiles/std_msgs_generate_messages_eus.dir/build
-.PHONY : std_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-offboard_control/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 offboard_control/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-.PHONY : offboard_control/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_lisp: offboard_control/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-.PHONY : std_msgs_generate_messages_lisp
-
-# fast build rule for target.
-std_msgs_generate_messages_lisp/fast:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make offboard_control/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-.PHONY : std_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-offboard_control/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 offboard_control/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-.PHONY : offboard_control/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_nodejs: offboard_control/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-.PHONY : std_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-std_msgs_generate_messages_nodejs/fast:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make offboard_control/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
-.PHONY : std_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-offboard_control/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 offboard_control/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-.PHONY : offboard_control/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_py: offboard_control/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-.PHONY : std_msgs_generate_messages_py
-
-# fast build rule for target.
-std_msgs_generate_messages_py/fast:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/std_msgs_generate_messages_py.dir/build.make offboard_control/CMakeFiles/std_msgs_generate_messages_py.dir/build
-.PHONY : std_msgs_generate_messages_py/fast
-
-# Convenience name for target.
 offboard_control/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
 	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 offboard_control/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
 .PHONY : offboard_control/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
@@ -452,25 +312,133 @@ rosgraph_msgs_generate_messages_py/fast:
 .PHONY : rosgraph_msgs_generate_messages_py/fast
 
 # Convenience name for target.
-offboard_control/CMakeFiles/offboard_control.dir/rule:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 offboard_control/CMakeFiles/offboard_control.dir/rule
-.PHONY : offboard_control/CMakeFiles/offboard_control.dir/rule
+offboard_control/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 offboard_control/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+.PHONY : offboard_control/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-offboard_control: offboard_control/CMakeFiles/offboard_control.dir/rule
-.PHONY : offboard_control
+std_msgs_generate_messages_cpp: offboard_control/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+.PHONY : std_msgs_generate_messages_cpp
 
 # fast build rule for target.
-offboard_control/fast:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/offboard_control.dir/build.make offboard_control/CMakeFiles/offboard_control.dir/build
-.PHONY : offboard_control/fast
+std_msgs_generate_messages_cpp/fast:
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make offboard_control/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+.PHONY : std_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+offboard_control/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 offboard_control/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
+.PHONY : offboard_control/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_eus: offboard_control/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
+.PHONY : std_msgs_generate_messages_eus
+
+# fast build rule for target.
+std_msgs_generate_messages_eus/fast:
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make offboard_control/CMakeFiles/std_msgs_generate_messages_eus.dir/build
+.PHONY : std_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+offboard_control/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 offboard_control/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+.PHONY : offboard_control/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_lisp: offboard_control/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+.PHONY : std_msgs_generate_messages_lisp
+
+# fast build rule for target.
+std_msgs_generate_messages_lisp/fast:
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make offboard_control/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
+.PHONY : std_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+offboard_control/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 offboard_control/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
+.PHONY : offboard_control/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_nodejs: offboard_control/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
+.PHONY : std_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+std_msgs_generate_messages_nodejs/fast:
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make offboard_control/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
+.PHONY : std_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+offboard_control/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 offboard_control/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+.PHONY : offboard_control/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_py: offboard_control/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+.PHONY : std_msgs_generate_messages_py
+
+# fast build rule for target.
+std_msgs_generate_messages_py/fast:
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/std_msgs_generate_messages_py.dir/build.make offboard_control/CMakeFiles/std_msgs_generate_messages_py.dir/build
+.PHONY : std_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+offboard_control/CMakeFiles/attitude_offboard.dir/rule:
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 offboard_control/CMakeFiles/attitude_offboard.dir/rule
+.PHONY : offboard_control/CMakeFiles/attitude_offboard.dir/rule
+
+# Convenience name for target.
+attitude_offboard: offboard_control/CMakeFiles/attitude_offboard.dir/rule
+.PHONY : attitude_offboard
+
+# fast build rule for target.
+attitude_offboard/fast:
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/attitude_offboard.dir/build.make offboard_control/CMakeFiles/attitude_offboard.dir/build
+.PHONY : attitude_offboard/fast
+
+# Convenience name for target.
+offboard_control/CMakeFiles/offboard.dir/rule:
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 offboard_control/CMakeFiles/offboard.dir/rule
+.PHONY : offboard_control/CMakeFiles/offboard.dir/rule
+
+# Convenience name for target.
+offboard: offboard_control/CMakeFiles/offboard.dir/rule
+.PHONY : offboard
+
+# fast build rule for target.
+offboard/fast:
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/offboard.dir/build.make offboard_control/CMakeFiles/offboard.dir/build
+.PHONY : offboard/fast
+
+src/attitude_offboard.o: src/attitude_offboard.cpp.o
+.PHONY : src/attitude_offboard.o
+
+# target to build an object file
+src/attitude_offboard.cpp.o:
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/attitude_offboard.dir/build.make offboard_control/CMakeFiles/attitude_offboard.dir/src/attitude_offboard.cpp.o
+.PHONY : src/attitude_offboard.cpp.o
+
+src/attitude_offboard.i: src/attitude_offboard.cpp.i
+.PHONY : src/attitude_offboard.i
+
+# target to preprocess a source file
+src/attitude_offboard.cpp.i:
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/attitude_offboard.dir/build.make offboard_control/CMakeFiles/attitude_offboard.dir/src/attitude_offboard.cpp.i
+.PHONY : src/attitude_offboard.cpp.i
+
+src/attitude_offboard.s: src/attitude_offboard.cpp.s
+.PHONY : src/attitude_offboard.s
+
+# target to generate assembly for a file
+src/attitude_offboard.cpp.s:
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/attitude_offboard.dir/build.make offboard_control/CMakeFiles/attitude_offboard.dir/src/attitude_offboard.cpp.s
+.PHONY : src/attitude_offboard.cpp.s
 
 src/offboard.o: src/offboard.cpp.o
 .PHONY : src/offboard.o
 
 # target to build an object file
 src/offboard.cpp.o:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/offboard_control.dir/build.make offboard_control/CMakeFiles/offboard_control.dir/src/offboard.cpp.o
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/offboard.dir/build.make offboard_control/CMakeFiles/offboard.dir/src/offboard.cpp.o
 .PHONY : src/offboard.cpp.o
 
 src/offboard.i: src/offboard.cpp.i
@@ -478,7 +446,7 @@ src/offboard.i: src/offboard.cpp.i
 
 # target to preprocess a source file
 src/offboard.cpp.i:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/offboard_control.dir/build.make offboard_control/CMakeFiles/offboard_control.dir/src/offboard.cpp.i
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/offboard.dir/build.make offboard_control/CMakeFiles/offboard.dir/src/offboard.cpp.i
 .PHONY : src/offboard.cpp.i
 
 src/offboard.s: src/offboard.cpp.s
@@ -486,7 +454,7 @@ src/offboard.s: src/offboard.cpp.s
 
 # target to generate assembly for a file
 src/offboard.cpp.s:
-	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/offboard_control.dir/build.make offboard_control/CMakeFiles/offboard_control.dir/src/offboard.cpp.s
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/offboard.dir/build.make offboard_control/CMakeFiles/offboard.dir/src/offboard.cpp.s
 .PHONY : src/offboard.cpp.s
 
 # Help Target
@@ -502,11 +470,6 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... geometry_msgs_generate_messages_cpp"
-	@echo "... geometry_msgs_generate_messages_eus"
-	@echo "... geometry_msgs_generate_messages_lisp"
-	@echo "... geometry_msgs_generate_messages_nodejs"
-	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_eus"
 	@echo "... roscpp_generate_messages_lisp"
@@ -522,7 +485,11 @@ help:
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_py"
-	@echo "... offboard_control"
+	@echo "... attitude_offboard"
+	@echo "... offboard"
+	@echo "... src/attitude_offboard.o"
+	@echo "... src/attitude_offboard.i"
+	@echo "... src/attitude_offboard.s"
 	@echo "... src/offboard.o"
 	@echo "... src/offboard.i"
 	@echo "... src/offboard.s"
