@@ -154,13 +154,13 @@ int main(int argc, char **argv)
     // 输入应为 dataSave 20251223 01
     std::string TimeDir = argv[1];
     std::string Num = argv[2];
-    std::string DataRawHead = "Raw_.csv" ;
-    std::string KFHead = "KF_.csv";
-    std::string RKFHead = "RKF_.csv";
+    std::string DataRawHead = "Raw_" ;
+    std::string KFHead = "KF_";
+    std::string RKFHead = "RKF_";
     // 创建不同的记录器实例
-    DataRawRecorder leaderInformationRecorder("/leader/information", TimeDir + "/" + DataRawHead + Num);
-    DataFilteredRecorder kfRecorder("/leader/kf/pos", TimeDir + "/" + KFHead + Num);
-    DataFilteredRecorder rkfRecorder("/leader/kf/vel", TimeDir + "/" + RKFHead + Num);
+    DataRawRecorder leaderInformationRecorder("/leader/information", TimeDir + "/" + DataRawHead + Num + ".csv");
+    DataFilteredRecorder kfRecorder("/leader/kf/pos", TimeDir + "/" + KFHead + Num + ".csv");
+    DataFilteredRecorder rkfRecorder("/leader/kf/vel", TimeDir + "/" + RKFHead + Num + ".csv");
 
     // 或者根据参数决定创建哪种记录器
     // if (argc > 1)
