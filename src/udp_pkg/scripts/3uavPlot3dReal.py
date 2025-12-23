@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib.animation import FuncAnimation
 from geometry_msgs.msg import PoseStamped
+import copy
 import threading
 import numpy as np
 import message_filters
@@ -86,6 +87,12 @@ class RealTime3DPlotter:
         
         rospy.loginfo("3D Real-time Trajectory Plotter Started")
     
+    def flag(self, list1, list2):
+        for x, y in zip(list1, list2):
+            if abs(x - y) > 0.5:
+                return False
+        return True
+    
     def approximate_sync_callback(self, leader_msg, follower1_msg, follower2_msg):
         """PoseStamped message callback - extract only XYZ coordinates"""
         with self.lock:
@@ -102,18 +109,25 @@ class RealTime3DPlotter:
             y3 = follower2_msg.pose.position.y
             z3 = follower2_msg.pose.position.z
 
+            self.list1 = [x1, y1, z1, x2, y2, z2, x3, y3, z3]
+            if len(self.x1_data) == 0:
+                self.list2 = copy.deepcopy(self.list1)
+
             # Add new data
-            self.x1_data.append(x1)
-            self.y1_data.append(y1)
-            self.z1_data.append(z1)
+            if len(self.x1_data) == 0 or self.flag(self.list1, self.list2):
+                self.x1_data.append(x1)
+                self.y1_data.append(y1)
+                self.z1_data.append(z1)
 
-            self.x2_data.append(x2)
-            self.y2_data.append(y2)
-            self.z2_data.append(z2) 
+                self.x2_data.append(x2)
+                self.y2_data.append(y2)
+                self.z2_data.append(z2) 
 
-            self.x3_data.append(x3)
-            self.y3_data.append(y3)
-            self.z3_data.append(z3) 
+                self.x3_data.append(x3)
+                self.y3_data.append(y3)
+                self.z3_data.append(z3) 
+
+                self.list2 = copy.deepcopy(self.list1) 
 
             # Keep data length within maximum
             if len(self.x1_data) > self.max_data_points:
@@ -125,7 +139,7 @@ class RealTime3DPlotter:
                 self.z2_data.pop(0)    
                 self.x3_data.pop(0)
                 self.y3_data.pop(0)
-                self.z3_data.pop(0)       
+                self.z3_data.pop(0)      
             # # Print latest data every 30 data points
             # if len(self.x_data) % 30 == 0:
             #     rospy.loginfo(f"Current Position - X: {x:.2f}m, Y: {y:.2f}m, Z: {z:.2f}m")

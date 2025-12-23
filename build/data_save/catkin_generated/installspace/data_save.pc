@@ -1,0 +1,8 @@
+prefix=/home/ubuntu/attack_ws/install
+
+Name: data_save
+Description: Description of data_save
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
