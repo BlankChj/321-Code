@@ -102,9 +102,9 @@ def plot_single(time_list, data_list, xyz, highlight_intervals, labels, paths):
             continue
         ax.plot(t, x, label=p[s + 1: m])
         x_min = min(x_min, t.min())
-        x_max = min(x_max, t.max())
+        x_max = max(x_max, t.max())
         y_min = min(y_min, x.min())
-        y_max = min(y_max, x.max())
+        y_max = max(y_max, x.max())
     ax.set_xlim(x_min - 0.5, x_max + 0.5)
     ax.set_ylim(y_min - 0.2, y_max + 0.4)
     if len(highlight_intervals) > 0:
@@ -130,7 +130,7 @@ def plot_single(time_list, data_list, xyz, highlight_intervals, labels, paths):
 
 
 def plot_all(recursive=False):
-    csv_path_list = find_max_num_csv_list(f"/home/ubuntu/DataRecord/{datetime.now().strftime('%Y%m%d')}", recursive)
+    csv_path_list = find_max_num_csv_list(f"{os.environ.get('HOME')}/DataRecord/{datetime.now().strftime('%Y%m%d')}", recursive)
     time_list = []
     x_list = []
     y_list = []

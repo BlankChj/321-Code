@@ -189,7 +189,7 @@ public:
         file_ << time << ","
               << msg->pose.position.x << ","
               << msg->pose.position.y << ","
-              << msg->pose.position.x << ","
+              << msg->pose.position.z << ","
               << msg->pose.orientation.x << ","
               << msg->pose.orientation.y << ","
               << msg->pose.orientation.z << ","
