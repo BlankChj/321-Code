@@ -23,6 +23,7 @@ protected:
 public:
     DataRecorder(const std::string &filename) : filename_(filename)
     {
+        file_ << std::setprecision(15);
         const char *home_dir = getenv("HOME");
         if (home_dir)
         {
@@ -214,7 +215,7 @@ std::string getMaxSuffixNumber(const std::string &dir_path)
 
     DIR *dir = opendir(dir_path.c_str());
     if (dir == nullptr)
-        return "";
+        return "000";
 
     struct dirent *entry;
     while ((entry = readdir(dir)) != nullptr)
