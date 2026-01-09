@@ -150,12 +150,17 @@ include_directories(
 # )
 
 add_executable(attitude_offboard src/attitude_offboard.cpp)
+target_link_libraries(attitude_offboard   ${catkin_LIBRARIES})
+
 #add_executable(send_epose src/send_epose.cpp)
 add_executable(offboard src/offboard.cpp)
-#add_executable(plot src/plot.cpp)
-target_link_libraries(attitude_offboard   ${catkin_LIBRARIES})
-#target_link_libraries(send_epose   ${catkin_LIBRARIES})
 target_link_libraries(offboard   ${catkin_LIBRARIES})
+
+add_executable(auto src/auto.cpp)
+target_link_libraries(auto   ${catkin_LIBRARIES})
+
+#add_executable(plot src/plot.cpp)
+#target_link_libraries(send_epose   ${catkin_LIBRARIES})
 #target_link_libraries(plot   ${catkin_LIBRARIES})
 
 #############

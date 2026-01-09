@@ -409,6 +409,20 @@ offboard/fast:
 	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/offboard.dir/build.make offboard_control/CMakeFiles/offboard.dir/build
 .PHONY : offboard/fast
 
+# Convenience name for target.
+offboard_control/CMakeFiles/auto.dir/rule:
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 offboard_control/CMakeFiles/auto.dir/rule
+.PHONY : offboard_control/CMakeFiles/auto.dir/rule
+
+# Convenience name for target.
+auto: offboard_control/CMakeFiles/auto.dir/rule
+.PHONY : auto
+
+# fast build rule for target.
+auto/fast:
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/auto.dir/build.make offboard_control/CMakeFiles/auto.dir/build
+.PHONY : auto/fast
+
 src/attitude_offboard.o: src/attitude_offboard.cpp.o
 .PHONY : src/attitude_offboard.o
 
@@ -432,6 +446,30 @@ src/attitude_offboard.s: src/attitude_offboard.cpp.s
 src/attitude_offboard.cpp.s:
 	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/attitude_offboard.dir/build.make offboard_control/CMakeFiles/attitude_offboard.dir/src/attitude_offboard.cpp.s
 .PHONY : src/attitude_offboard.cpp.s
+
+src/auto.o: src/auto.cpp.o
+.PHONY : src/auto.o
+
+# target to build an object file
+src/auto.cpp.o:
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/auto.dir/build.make offboard_control/CMakeFiles/auto.dir/src/auto.cpp.o
+.PHONY : src/auto.cpp.o
+
+src/auto.i: src/auto.cpp.i
+.PHONY : src/auto.i
+
+# target to preprocess a source file
+src/auto.cpp.i:
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/auto.dir/build.make offboard_control/CMakeFiles/auto.dir/src/auto.cpp.i
+.PHONY : src/auto.cpp.i
+
+src/auto.s: src/auto.cpp.s
+.PHONY : src/auto.s
+
+# target to generate assembly for a file
+src/auto.cpp.s:
+	cd /home/ubuntu/attack_ws/build && $(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/auto.dir/build.make offboard_control/CMakeFiles/auto.dir/src/auto.cpp.s
+.PHONY : src/auto.cpp.s
 
 src/offboard.o: src/offboard.cpp.o
 .PHONY : src/offboard.o
@@ -486,10 +524,14 @@ help:
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... attitude_offboard"
+	@echo "... auto"
 	@echo "... offboard"
 	@echo "... src/attitude_offboard.o"
 	@echo "... src/attitude_offboard.i"
 	@echo "... src/attitude_offboard.s"
+	@echo "... src/auto.o"
+	@echo "... src/auto.i"
+	@echo "... src/auto.s"
 	@echo "... src/offboard.o"
 	@echo "... src/offboard.i"
 	@echo "... src/offboard.s"

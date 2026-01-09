@@ -510,6 +510,19 @@ offboard/fast:
 .PHONY : offboard/fast
 
 #=============================================================================
+# Target rules for targets named auto
+
+# Build rule for target.
+auto: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 auto
+.PHONY : auto
+
+# fast build rule for target.
+auto/fast:
+	$(MAKE) $(MAKESILENT) -f offboard_control/CMakeFiles/auto.dir/build.make offboard_control/CMakeFiles/auto.dir/build
+.PHONY : auto/fast
+
+#=============================================================================
 # Target rules for targets named geometry_msgs_generate_messages_cpp
 
 # Build rule for target.
@@ -1516,6 +1529,7 @@ help:
 	@echo "... udp_pkg_genpy"
 	@echo "... KF"
 	@echo "... attitude_offboard"
+	@echo "... auto"
 	@echo "... data_save"
 	@echo "... follower_control"
 	@echo "... gmock"

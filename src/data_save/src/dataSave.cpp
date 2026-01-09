@@ -290,7 +290,7 @@ int main(int argc, char **argv)
     // 创建不同的记录器实例
     DataRawRecorder leaderInformationRecorder("/leader/information", TimeDir + "/" + DataRawHead + Num + ".csv");
     DataFilteredRecorder kfRecorder("/leader/kf/pos", TimeDir + "/" + KFHead + Num + ".csv");
-    DataFilteredRecorder rkfRecorder("/leader/kf/vel", TimeDir + "/" + RKFHead + Num + ".csv");
+    DataFilteredRecorder rkfRecorder("/leader/rkf/pos", TimeDir + "/" + RKFHead + Num + ".csv");
     DataVisionPoseRecorder visionPoseRecorder("/mavros/vision_pose/pose", TimeDir + "/" + VisionPoseHead + Num + ".csv");
 
     // 或者根据参数决定创建哪种记录器

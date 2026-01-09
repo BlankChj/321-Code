@@ -412,6 +412,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "offboard_control/CMakeFiles/std_msgs_generate_messages_py.dir/DependInfo.cmake"
   "offboard_control/CMakeFiles/attitude_offboard.dir/DependInfo.cmake"
   "offboard_control/CMakeFiles/offboard.dir/DependInfo.cmake"
+  "offboard_control/CMakeFiles/auto.dir/DependInfo.cmake"
   "plot/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/DependInfo.cmake"
   "plot/CMakeFiles/geometry_msgs_generate_messages_eus.dir/DependInfo.cmake"
   "plot/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/DependInfo.cmake"

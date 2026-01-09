@@ -52,6 +52,7 @@
 /home/ubuntu/attack_ws/build/offboard_control/CMakeFiles/std_msgs_generate_messages_py.dir
 /home/ubuntu/attack_ws/build/offboard_control/CMakeFiles/attitude_offboard.dir
 /home/ubuntu/attack_ws/build/offboard_control/CMakeFiles/offboard.dir
+/home/ubuntu/attack_ws/build/offboard_control/CMakeFiles/auto.dir
 /home/ubuntu/attack_ws/build/offboard_control/CMakeFiles/test.dir
 /home/ubuntu/attack_ws/build/offboard_control/CMakeFiles/edit_cache.dir
 /home/ubuntu/attack_ws/build/offboard_control/CMakeFiles/rebuild_cache.dir
