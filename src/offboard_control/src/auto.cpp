@@ -172,7 +172,23 @@ int main(int argc, char **argv)
     ROS_INFO("Starting Mission...");
 
     bool pubFlag = true;
-    std::vector<double> timeTable{0.0, 20.0, 50.0, 60.0};
+
+    double hoverTime = 10.0;
+    double trajectoryTime = 20.0;
+    double landTime = 5.0;
+    if (argc >1 && argc <5){
+        hoverTime = std::stod(argv[1]);
+        trajectoryTime = std::stod(argv[2]);
+        landTime = std::stod(argv[3]);
+    }
+    
+    double T0 = 0.0;
+    double T1 = T0 + hoverTime;
+    double T2 = T1 + trajectoryTime;
+    double T3 = T2 + landTime;
+    double T4 = T3 + 5.0;
+
+    std::vector<double> timeTable{T0, T1, T2, T3, T4};
     while (ros::ok())
     {
         double time_elapsed = (ros::Time::now() - start_time).toSec();
@@ -246,12 +262,17 @@ int main(int argc, char **argv)
                     pose.pose.position.z = 0.05;
                 }
             }
-            else if (time_elapsed >= timeTable[3])
+            else if (time_elapsed >= timeTable[3] && time_elapsed < timeTable[4])
             {
                 pubFlag = false;
 
                 arm_cmd.request.value = false;
                 arming_client.call(arm_cmd);
+            }
+            else if (time_elapsed >= timeTable[4])
+            {
+                ROS_INFO("Mission Completed. Shutting down node.");
+                break;
             }
         }
 
