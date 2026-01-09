@@ -5,7 +5,7 @@ if [ "$irisName" = "4" ]; then
     ip="192.168.31.163"
 elif [ "$irisName" = "5" ]; then
     ip="192.168.31.163"
-elif [ "$irisName" = "6" ]; then
+elif [ "$irisName" = "7" ]; then
     ip="192.168.31.36"
 fi
 
