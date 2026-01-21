@@ -25,9 +25,9 @@ class RKF():
         self.zero_mat = np.matrix([[0, 0], [0, 0]], dtype=np.float64)
         self.eye_mat = np.matrix([[1, 0], [0, 1]], dtype=np.float64)
         self.sensor_mean = np.array([0, 0], dtype=np.float64)
-        self.sensor_std = np.array([0.8, 0.5], dtype=np.float64)
+        self.sensor_std = np.array([1.0, 0.05], dtype=np.float64)
         self.process_mean = np.array([0, 0], dtype=np.float64)
-        self.process_std = np.array([1, 0.8], dtype=np.float64)
+        self.process_std = np.array([0.05, 0.05], dtype=np.float64)
 
         self.x_hat = np.matrix([[0], [0]], dtype=np.float64)
         self.y_hat = np.matrix([[0], [0]], dtype=np.float64)
