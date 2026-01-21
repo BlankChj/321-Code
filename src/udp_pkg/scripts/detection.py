@@ -5,7 +5,7 @@ import rospy
 import copy
 from udp_pkg.msg import PositionVelocityAccel
 from geometry_msgs.msg import PoseStamped
-import joblib
+# import joblib
 import pandas as pd
 
 class RKF():
@@ -244,8 +244,8 @@ class Detection():
         rospy.init_node("detection")
         self.model_path = model_path
         self.feature_cols = ["stamp","dt","x_pos","y_pos","z_pos","dx","dy","dz","x_ori","y_ori","z_ori","w_ori"]
-        if model_path is not None:
-            self.model = joblib.load(self.model_path)
+        # if model_path is not None:
+        #     self.model = joblib.load(self.model_path)
         self.use_model = use_model
         self.real_cnt = [0, 0, 0, 0]
         self.pre_cnt = [0, 0, 0, 0]
@@ -309,42 +309,42 @@ class Detection():
         self.old_old_var = self.old_var
         self.old_var = var
     
-    def xgboost(self, info):
-        stamp = info.stamp
-        dt = stamp - self.old.stamp
-        x_pos = info.x_pos
-        y_pos = info.y_pos
-        z_pos = info.z_pos
-        dx = x_pos - self.old.x_pos
-        dy = y_pos - self.old.y_pos
-        dz = z_pos - self.old.z_pos
-        x_ori = info.x_ori
-        y_ori = info.y_ori
-        z_ori = info.z_ori
-        w_ori = info.w_ori
-        row = [[stamp, dt, x_pos, y_pos, z_pos, dx, dy, dz, x_ori, y_ori, z_ori, w_ori]]
-        data = pd.DataFrame(row, columns=self.feature_cols)
-        pred_label = self.model.predict(data)[0]
-        return pred_label == 1
+    # def xgboost(self, info):
+    #     stamp = info.stamp
+    #     dt = stamp - self.old.stamp
+    #     x_pos = info.x_pos
+    #     y_pos = info.y_pos
+    #     z_pos = info.z_pos
+    #     dx = x_pos - self.old.x_pos
+    #     dy = y_pos - self.old.y_pos
+    #     dz = z_pos - self.old.z_pos
+    #     x_ori = info.x_ori
+    #     y_ori = info.y_ori
+    #     z_ori = info.z_ori
+    #     w_ori = info.w_ori
+    #     row = [[stamp, dt, x_pos, y_pos, z_pos, dx, dy, dz, x_ori, y_ori, z_ori, w_ori]]
+    #     data = pd.DataFrame(row, columns=self.feature_cols)
+    #     pred_label = self.model.predict(data)[0]
+    #     return pred_label == 1
     
-    def predict_model(self, info):
-        if self.label == 3:
-            if info.stamp - self.old.stamp >= 1:
-                self.label = 0
-        elif info.stamp - self.old.stamp < 0:
-            self.fake = True
-            # self.label = 3
-        elif ((info.x_pos == self.old.x_pos or self.old.x_pos == self.old_old.x_pos)
-            and (info.y_pos == self.old.y_pos or self.old.y_pos == self.old_old.y_pos)
-            and (info.z_pos == self.old.z_pos or self.old.z_pos == self.old_old.z_pos)):
-            if info.stamp != self.old.stamp:
-                self.label = 1
-        elif self.xgboost(info):
-            self.label = 2
-        else:
-            self.label = 0
-        self.old_old = copy.deepcopy(self.old)
-        self.old = copy.deepcopy(info)
+    # def predict_model(self, info):
+    #     if self.label == 3:
+    #         if info.stamp - self.old.stamp >= 1:
+    #             self.label = 0
+    #     elif info.stamp - self.old.stamp < 0:
+    #         self.fake = True
+    #         # self.label = 3
+    #     elif ((info.x_pos == self.old.x_pos or self.old.x_pos == self.old_old.x_pos)
+    #         and (info.y_pos == self.old.y_pos or self.old.y_pos == self.old_old.y_pos)
+    #         and (info.z_pos == self.old.z_pos or self.old.z_pos == self.old_old.z_pos)):
+    #         if info.stamp != self.old.stamp:
+    #             self.label = 1
+    #     elif self.xgboost(info):
+    #         self.label = 2
+    #     else:
+    #         self.label = 0
+    #     self.old_old = copy.deepcopy(self.old)
+    #     self.old = copy.deepcopy(info)
     
     def main(self):
         while True:
@@ -357,10 +357,10 @@ class Detection():
             try:
                 if self.info_flag:
                     ll = int(self.leader.frame_id[-1])
-                    if self.use_model:
-                        self.predict_model(copy.deepcopy(self.leader))
-                    else:
-                        self.predict(copy.deepcopy(self.leader))
+                    # if self.use_model:
+                    #     self.predict_model(copy.deepcopy(self.leader))
+                    # else:
+                    self.predict(copy.deepcopy(self.leader))
                     self.real_cnt[ll] += 1
                     if ll == self.label:
                         self.pre_cnt[self.label] += 1
@@ -374,7 +374,7 @@ class Detection():
                 break
 
 if __name__ == "__main__":
-    model_path = "xgboost_model.pkl"
+    # model_path = "xgboost_model.pkl"
     detection = Detection()
     # detection = Detection(model_path, True)
     detection.main()
