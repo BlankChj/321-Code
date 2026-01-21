@@ -2,7 +2,6 @@ import socket
 import sys
 import struct
 import rospy
-from message_filters import Subscriber
 from geometry_msgs.msg import PoseStamped
 
 server_ip = None
@@ -24,10 +23,10 @@ def callback(msg):
 
 
 if __name__ == "__main__":
-    server_ip = sys.argv[1]
-    port_id = int(sys.argv[2])
     rospy.init_node(f"iris_sender_node")
-    pose_sub = Subscriber('/mavros/local_position/pose', PoseStamped, callback, queue_size=10)
+    server_ip = [sys.argv[1]]
+    port_id = int(sys.argv[2])
+    pose_sub = rospy.Subscriber('/mavros/local_position/pose', PoseStamped, callback, queue_size=10)
     while True:
         try:
             pass
