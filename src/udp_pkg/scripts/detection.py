@@ -282,6 +282,7 @@ class Detection():
             self.second = False
     
     def predict(self, info):
+        info.frame_id = f"world_{self.label}"
         xx, yy, zz = self.filter.predict_info(info)
         if self.label == 3:
             if info.stamp - self.old.stamp >= 1:
