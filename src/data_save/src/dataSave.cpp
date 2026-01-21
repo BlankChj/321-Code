@@ -157,7 +157,8 @@ public:
     }
 };
 
-class DataVisionPoseRecorder : public DataRecorder
+//  record geometry_msgs::PoseStamped::ConstPtr type data
+class DataVisionPoseRecorder : public DataRecorder 
 {
 private:
     ros::NodeHandle nh_;
@@ -286,12 +287,16 @@ int main(int argc, char **argv)
     std::string KFHead = "KF_";
     std::string RKFHead = "RKF_";
     std::string VisionPoseHead = "VisionPose_";
+    std::string LocalPoseHead = "LocalPose_";
+    std::string AttackHead = "AttackPose_";
 
     // 创建不同的记录器实例
     DataRawRecorder leaderInformationRecorder("/leader/information", TimeDir + "/" + DataRawHead + Num + ".csv");
     DataFilteredRecorder kfRecorder("/leader/kf/pos", TimeDir + "/" + KFHead + Num + ".csv");
     DataFilteredRecorder rkfRecorder("/leader/rkf/pos", TimeDir + "/" + RKFHead + Num + ".csv");
     DataVisionPoseRecorder visionPoseRecorder("/mavros/vision_pose/pose", TimeDir + "/" + VisionPoseHead + Num + ".csv");
+    DataVisionPoseRecorder localPoseRecorder("/mavros/local_position/pose", TimeDir + "/" + LocalPoseHead + Num + ".csv");
+    DataVisionPoseRecorder attackDetectionRecorder("/attack/detection", TimeDir + "/" + AttackHead + Num + ".csv");
 
     // 或者根据参数决定创建哪种记录器
     // if (argc > 1)

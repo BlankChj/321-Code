@@ -16,6 +16,8 @@ echo "连接远程主机：$HOST"
 echo "连接远程主机并执行命令..."
 echo "cd ~/scripts; source auto_iris_launch.sh iris$irisName"
 
+rm -f /tmp/known_hosts_temp
+
 # 使用 sshpass 执行命令
 sshpass -p "$PASSWORD" ssh -o StrictHostKeyChecking=no -o ConnectTimeout=10 \
     "$HOST" -p 22 -Y "export LC_ALL=C; cd ~/scripts; source auto_iris_launch.sh iris$irisName; echo '命令执行完成'"
