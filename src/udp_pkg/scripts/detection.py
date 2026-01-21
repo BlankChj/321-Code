@@ -10,7 +10,7 @@ from geometry_msgs.msg import PoseStamped
 
 class RKF():
     def __init__(self):
-        self.rkf_pub = rospy.Publisher('/rkf_py/pose', PoseStamped, queue_size=10)
+        self.rkf_pub = rospy.Publisher('/attack/detection', PoseStamped, queue_size=10)
         self.pose = PoseStamped()
         self.not_first = False
         self.gravity_coefficent = 9.8
@@ -215,7 +215,7 @@ class RKF():
             self.not_first = True
             return px_now, py_now, pz_now
     
-    def predict_info(self, info):
+    def predict_info(self, info, acc):
         stamp = info.stamp
         px_now = info.x_pos
         py_now = info.y_pos
@@ -236,6 +236,10 @@ class RKF():
         self.pose.pose.position.x = xx
         self.pose.pose.position.y = yy
         self.pose.pose.position.z = zz
+        self.pose.pose.orientation.x = acc[0]
+        self.pose.pose.orientation.y = acc[1]
+        self.pose.pose.orientation.z = acc[2]
+        self.pose.pose.orientation.w = acc[3]
         self.rkf_pub.publish(self.pose)
         return xx, yy, zz
 
@@ -270,20 +274,20 @@ class Detection():
         self.info_flag = True
         if self.first:
             self.old_old = copy.deepcopy(msg)
-            x, y, z = self.filter.predict_info(self.old_old)
+            x, y, z = self.filter.predict_info(self.old_old, copy.deepcopy([((self.pre_cnt[i] / self.real_cnt[i]) if self.real_cnt[i] != 0 else 1.0) for i in range(4)]))
             self.old_old_pos = [x, y, z]
             self.old_old_var = ((x - self.old_old.x_pos)**2 + (y - self.old_old.y_pos)**2 + (z - self.old_old.z_pos)**2)
             self.first = False
         elif self.second:
             self.old = copy.deepcopy(msg)
-            x, y, z = self.filter.predict_info(self.old)
+            x, y, z = self.filter.predict_info(self.old, copy.deepcopy([((self.pre_cnt[i] / self.real_cnt[i]) if self.real_cnt[i] != 0 else 1.0) for i in range(4)]))
             self.old_pos = [x, y, z]
             self.old_var = ((x - self.old.x_pos)**2 + (y - self.old.y_pos)**2 + (z - self.old.z_pos)**2)
             self.second = False
     
     def predict(self, info):
         info.frame_id = f"world_{self.label}"
-        xx, yy, zz = self.filter.predict_info(info)
+        xx, yy, zz = self.filter.predict_info(info, copy.deepcopy([((self.pre_cnt[i] / self.real_cnt[i]) if self.real_cnt[i] != 0 else 1.0) for i in range(4)]))
         if self.label == 3:
             if info.stamp - self.old.stamp >= 1:
                 self.label = 0
