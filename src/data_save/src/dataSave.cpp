@@ -263,24 +263,31 @@ int main(int argc, char **argv)
     std::string TimeDir = getCurrentDateString();
     std::string PosDir = "/PositionData/";
     std::string DetectionDir = "/DetectionData/";
-    std::string PosStoreDir = basedir+TimeDir+PosDir;
-    std::string DetStoreDir = basedir+TimeDir+DetectionDir;
+    std::string PosStoreDir = TimeDir+PosDir;
+    std::string DetStoreDir = TimeDir+DetectionDir;
 
     size_t last_slash = PosStoreDir.find_last_of('/');
     if (last_slash != std::string::npos)
     {
-        std::string dir_path = PosStoreDir.substr(0, last_slash);
+        std::string posdir_path = PosStoreDir.substr(0, last_slash);
+        std::string detdir_path = DetStoreDir.substr(0, last_slash);
 
         // 递归创建目录
-        std::string cmd = "mkdir -p \"" + dir_path + "\"";
-        int result = system(cmd.c_str());
-        if (result != 0)
+        std::string cmd1 = "mkdir -p \"" + posdir_path + "\"";
+        std::string cmd2 = "mkdir -p \"" + detdir_path + "\"";
+
+        int result1 = system(cmd1.c_str());
+        int result2 = system(cmd2.c_str());
+
+        if (result1 != 0 && result2 !=0)
         {
-            ROS_WARN("Failed to create directory: %s", dir_path.c_str());
+            ROS_WARN("Failed to create directory: %s", posdir_path.c_str());
+            ROS_WARN("Failed to create directory: %s", detdir_path.c_str());
         }
         else
         {
-            ROS_INFO("Created directory: %s", dir_path.c_str());
+            ROS_INFO("Created directory: %s", posdir_path.c_str());
+            ROS_INFO("Created directory: %s", detdir_path.c_str());
         }
     }
 
