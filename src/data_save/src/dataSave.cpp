@@ -298,14 +298,14 @@ int main(int argc, char **argv)
     std::string RKFHead = "RKF_";
     std::string VisionPoseHead = "VisionPose_";
     std::string LocalPoseHead = "LocalPose_";
-    std::string AttackHead = "AttackPose_";
+    std::string AttackHead = "AttackDetection_";
 
     // 创建不同的记录器实例
     DataRawRecorder leaderInformationRecorder("/leader/information", PosStoreDir + "/" + DataRawHead + Num + ".csv");
     DataFilteredRecorder kfRecorder("/leader/kf/pos", PosStoreDir + "/" + KFHead + Num + ".csv");
     DataFilteredRecorder rkfRecorder("/leader/rkf/pos", PosStoreDir + "/" + RKFHead + Num + ".csv");
     // DataVisionPoseRecorder visionPoseRecorder("/mavros/vision_pose/pose", TimeDir + "/" + VisionPoseHead + Num + ".csv");
-    DataVisionPoseRecorder localPoseRecorder("/mavros/local_position/pose", PosStoreDir + "/" + LocalPoseHead + Num + ".csv");
+    // DataVisionPoseRecorder localPoseRecorder("/mavros/local_position/pose", PosStoreDir + "/" + LocalPoseHead + Num + ".csv");
     DataVisionPoseRecorder attackDetectionRecorder("/attack/detection", DetStoreDir + "/" + AttackHead + Num + ".csv");
 
     // 或者根据参数决定创建哪种记录器

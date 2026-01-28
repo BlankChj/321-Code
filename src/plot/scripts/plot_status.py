@@ -130,7 +130,7 @@ def plot_single(time_list, data_list, xyz, highlight_intervals, labels, paths):
 
 
 def plot_all(recursive=False):
-    csv_path_list = find_max_num_csv_list(f"{os.environ.get('HOME')}/DataRecord/{datetime.now().strftime('%Y%m%d')}", recursive)
+    csv_path_list = find_max_num_csv_list(f"{os.environ.get('HOME')}/DataRecord/{datetime.now().strftime('%Y%m%d')}/PositionData", recursive)
     time_list = []
     x_list = []
     y_list = []
