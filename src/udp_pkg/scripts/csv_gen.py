@@ -71,6 +71,6 @@ def main(ports):
 
 if __name__ == "__main__":
     iris_num = int(sys.argv[1])
-    csv_filenames = [f"iris_{i}_data.csv" for i in range(iris_num)]
+    csv_filenames = [f"/home/ubuntu/attack_ws/src/udp_pkg/src/iris_{i}_data.csv" for i in range(iris_num)]
     ports = [9200 + i for i in range(iris_num)]
     main(ports)

@@ -261,12 +261,15 @@ int main(int argc, char **argv)
 
     // 输入应为 dataSave 01
     std::string TimeDir = getCurrentDateString();
-    std::string storedir = basedir+TimeDir;
+    std::string PosDir = "/PositionData/";
+    std::string DetectionDir = "/DetectionData/";
+    std::string PosStoreDir = basedir+TimeDir+PosDir;
+    std::string DetStoreDir = basedir+TimeDir+DetectionDir;
 
-    size_t last_slash = storedir.find_last_of('/');
+    size_t last_slash = PosStoreDir.find_last_of('/');
     if (last_slash != std::string::npos)
     {
-        std::string dir_path = storedir.substr(0, last_slash);
+        std::string dir_path = PosStoreDir.substr(0, last_slash);
 
         // 递归创建目录
         std::string cmd = "mkdir -p \"" + dir_path + "\"";
@@ -281,7 +284,7 @@ int main(int argc, char **argv)
         }
     }
 
-    std::string Num = getMaxSuffixNumber(storedir);
+    std::string Num = getMaxSuffixNumber(PosStoreDir);
     // std::string Num = argv[1];
     std::string DataRawHead = "Raw_" ;
     std::string KFHead = "KF_";
@@ -291,12 +294,12 @@ int main(int argc, char **argv)
     std::string AttackHead = "AttackPose_";
 
     // 创建不同的记录器实例
-    DataRawRecorder leaderInformationRecorder("/leader/information", TimeDir + "/" + DataRawHead + Num + ".csv");
-    DataFilteredRecorder kfRecorder("/leader/kf/pos", TimeDir + "/" + KFHead + Num + ".csv");
-    DataFilteredRecorder rkfRecorder("/leader/rkf/pos", TimeDir + "/" + RKFHead + Num + ".csv");
+    DataRawRecorder leaderInformationRecorder("/leader/information", PosStoreDir + "/" + DataRawHead + Num + ".csv");
+    DataFilteredRecorder kfRecorder("/leader/kf/pos", PosStoreDir + "/" + KFHead + Num + ".csv");
+    DataFilteredRecorder rkfRecorder("/leader/rkf/pos", PosStoreDir + "/" + RKFHead + Num + ".csv");
     // DataVisionPoseRecorder visionPoseRecorder("/mavros/vision_pose/pose", TimeDir + "/" + VisionPoseHead + Num + ".csv");
-    DataVisionPoseRecorder localPoseRecorder("/mavros/local_position/pose", TimeDir + "/" + LocalPoseHead + Num + ".csv");
-    // DataVisionPoseRecorder attackDetectionRecorder("/attack/detection", TimeDir + "/" + AttackHead + Num + ".csv");
+    DataVisionPoseRecorder localPoseRecorder("/mavros/local_position/pose", PosStoreDir + "/" + LocalPoseHead + Num + ".csv");
+    DataVisionPoseRecorder attackDetectionRecorder("/attack/detection", DetStoreDir + "/" + AttackHead + Num + ".csv");
 
     // 或者根据参数决定创建哪种记录器
     // if (argc > 1)
