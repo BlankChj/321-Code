@@ -294,9 +294,9 @@ int main(int argc, char **argv)
     DataRawRecorder leaderInformationRecorder("/leader/information", TimeDir + "/" + DataRawHead + Num + ".csv");
     DataFilteredRecorder kfRecorder("/leader/kf/pos", TimeDir + "/" + KFHead + Num + ".csv");
     DataFilteredRecorder rkfRecorder("/leader/rkf/pos", TimeDir + "/" + RKFHead + Num + ".csv");
-    DataVisionPoseRecorder visionPoseRecorder("/mavros/vision_pose/pose", TimeDir + "/" + VisionPoseHead + Num + ".csv");
+    // DataVisionPoseRecorder visionPoseRecorder("/mavros/vision_pose/pose", TimeDir + "/" + VisionPoseHead + Num + ".csv");
     DataVisionPoseRecorder localPoseRecorder("/mavros/local_position/pose", TimeDir + "/" + LocalPoseHead + Num + ".csv");
-    DataVisionPoseRecorder attackDetectionRecorder("/attack/detection", TimeDir + "/" + AttackHead + Num + ".csv");
+    // DataVisionPoseRecorder attackDetectionRecorder("/attack/detection", TimeDir + "/" + AttackHead + Num + ".csv");
 
     // 或者根据参数决定创建哪种记录器
     // if (argc > 1)
