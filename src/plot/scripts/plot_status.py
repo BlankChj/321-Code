@@ -105,13 +105,13 @@ def plot_single(time_list, data_list, xyz, highlight_intervals, labels, paths):
         x_max = max(x_max, t.max())
         y_min = min(y_min, x.min())
         y_max = max(y_max, x.max())
-    ax.set_xlim(x_min - 0.5, x_max + 0.5)
+    ax.set_xlim(x_min - x_min - 0.5, x_max - x_min + 0.5)
     ax.set_ylim(y_min - 0.2, y_max + 0.4)
     if len(highlight_intervals) > 0:
         for i, interval in enumerate(highlight_intervals):
-            ax.axvspan(interval[0], interval[1], alpha=0.2, color='red')
+            ax.axvspan(interval[0] - x_min, interval[1] - x_min, alpha=0.2, color='red')
             ax.text(
-                (interval[0] + interval[1]) / 2,
+                (interval[0] - x_min + interval[1] - x_min) / 2,
                 y_max + 0.2,
                 labels[i],
                 ha='center',
