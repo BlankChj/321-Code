@@ -100,11 +100,14 @@ def plot_single(time_list, data_list, xyz, highlight_intervals, labels, paths):
     for t, x, p, s, m in zip(time_list, data_list, paths, start, mid):
         if len(t) == 0:
             continue
-        ax.plot(t, x, label=p[s + 1: m])
         x_min = min(x_min, t.min())
         x_max = max(x_max, t.max())
         y_min = min(y_min, x.min())
         y_max = max(y_max, x.max())
+    for t, x, p, s, m in zip(time_list, data_list, paths, start, mid):
+        if len(t) == 0:
+            continue
+        ax.plot(t - x_min, x, label=p[s + 1: m])
     ax.set_xlim(x_min - x_min - 0.5, x_max - x_min + 0.5)
     ax.set_ylim(y_min - 0.2, y_max + 0.4)
     if len(highlight_intervals) > 0:
