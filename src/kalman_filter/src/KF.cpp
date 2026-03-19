@@ -61,8 +61,8 @@ KF::KF(const ros::NodeHandle & nh):
         _Q = diagmat(Qvec);
 
         // measurement noise covariance
-        arma::vec posRVec = {0.5, 0.5, 0.5};
-        arma::vec velRVec = {0.5, 0.5, 0.5};
+        arma::vec posRVec = {0.5, 0.5, 0};
+        arma::vec velRVec = {0.5, 0.5, 0};
         _yPosR = diagmat(posRVec);
         _yVelR = diagmat(velRVec);
         _yOutR = diagmat(join_cols(posRVec,velRVec));
