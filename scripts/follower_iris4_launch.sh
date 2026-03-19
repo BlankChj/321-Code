@@ -10,7 +10,7 @@ sleep 10
 gnome-terminal	--tab --title="mavros_launch" -- bash -c "roslaunch mavros px4.launch"
 sleep 15
 
-gnome-terminal	--tab --title="topic_relay" -- bash -c "rosrun topic_tools relay /vrpn_client_node/$irisName/pose /mavros/vision_pose/pose"
+gnome-terminal	--tab --title="topic_relay" -- bash -c "rosrun topic_tools relay /vrpn_client_node/iris4/pose /mavros/vision_pose/pose"
 #gnome-terminal	--tab --title="topic_relay" -- bash -c "echo topic_tools relay /vrpn_client_node/$irisName/pose /mavros/vision_pose/pose; exec bash"
 sleep 2
 
