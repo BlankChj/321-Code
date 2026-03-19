@@ -1,6 +1,6 @@
 #!/bin/bash
 
-irisName=${1:-"iris0"}
+irisName=${1:-"iris7"}
 pkgRoot=${2:-"catkin_ws"}
 optiIp=${3:-"192.168.31.136"}
 
@@ -10,7 +10,7 @@ sleep 10
 gnome-terminal	--tab --title="mavros_launch" -- bash -c "roslaunch mavros px4.launch"
 sleep 15
 
-gnome-terminal	--tab --title="topic_relay" -- bash -c "rosrun topic_tools relay /vrpn_client_node/iris7/pose /mavros/vision_pose/pose"
+gnome-terminal	--tab --title="topic_relay" -- bash -c "rosrun topic_tools relay /vrpn_client_node/$irisName/pose /mavros/vision_pose/pose"
 #gnome-terminal	--tab --title="topic_relay" -- bash -c "echo topic_tools relay /vrpn_client_node/$irisName/pose /mavros/vision_pose/pose; exec bash"
 sleep 2
 
@@ -20,9 +20,9 @@ sleep 2
 gnome-terminal	--tab --title="localPose_display" -- bash -c " rostopic echo /mavros/local_position/pose"
 sleep 2
 
-gnome-terminal	--tab --title="udp_pkg" -- bash -c "cd ~/$pkgRoot/src/udp_pkg/scripts;echo Please Run the Udp Pkg;python3 agent.py 2 192.168.31.36 192.168.31.163 192.168.31.51"
+gnome-terminal	--tab --title="udp_pkg" -- bash -c "cd ~/$pkgRoot/src/udp_pkg/scripts;source ~/$pkgRoot/devel/setup.sh;echo Please Run the Udp Pkg;python3 agent.py 2 192.168.31.36 192.168.31.163 192.168.31.51"
 
-gnome-terminal	--tab --title="iris_sender" -- bash -c "cd ~/$pkgRoot/src/udp_pkg/scripts;echo Please Run the Udp Pkg;python3 iris_sender.py 2"
+gnome-terminal	--tab --title="iris_sender" -- bash -c "cd ~/$pkgRoot/src/udp_pkg/scripts;source ~/$pkgRoot/devel/setup.sh;echo Please Run the Udp Pkg;python3 iris_sender.py 2"
 
 gnome-terminal	--tab --title="kf_pkg" -- bash -c "cd ~/$pkgRoot ;source ~/$pkgRoot/devel/setup.sh;rosrun kalman_filter kalman_filter"
 
