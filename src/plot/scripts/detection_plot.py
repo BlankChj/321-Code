@@ -134,12 +134,17 @@ def main():
         interval = int(sys.argv[2]) if len(sys.argv) > 2 else 100
     else:
         # 无参数运行时，自动寻找最新的 AttackDetection csv
-        script_dir = os.path.dirname(os.path.abspath(__file__)) if '__file__' in globals() else os.getcwd()
-        print(f"未指定文件参数，正在搜索 {script_dir} 及其子目录下的最新数据...")
-        csv_file = find_latest_attack_csv(script_dir)
+        target_dir = os.path.join(os.path.expanduser('~'), 'DataRecord')
+        print(f"未指定文件参数，正在搜索 {target_dir} 及其子目录下的最新数据...")
+        
+        if not os.path.exists(target_dir):
+            print(f"错误: 目录 {target_dir} 不存在，请检查路径。")
+            sys.exit(1)
+            
+        csv_file = find_latest_attack_csv(target_dir)
         
         if not csv_file:
-            print("错误: 在当前目录及其子目录下未找到任何以 AttackDetection 开头的 CSV 文件。")
+            print(f"错误: 在 {target_dir} 及其子目录下未找到任何以 AttackDetection 开头的 CSV 文件。")
             sys.exit(1)
         
         interval = 100
