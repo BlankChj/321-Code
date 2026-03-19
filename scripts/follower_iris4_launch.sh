@@ -22,7 +22,9 @@ sleep 2
 
 gnome-terminal	--tab --title="udp_pkg" -- bash -c "cd ~/$pkgRoot/src/udp_pkg/scripts;source ~/$pkgRoot/devel/setup.sh;echo Please Run the Udp Pkg;python3 agent.py 1 192.168.31.163 192.168.31.51 192.168.31.36"
 
-gnome-terminal	--tab --title="iris_sender" -- bash -c "cd ~/$pkgRoot/src/udp_pkg/scripts;source ~/$pkgRoot/devel/setup.sh;echo Please Run the Udp Pkg;python3 iris_sender.py 1"
+gnome-terminal	--tab --title="iris_sender" -- bash -c "cd ~/$pkgRoot/src/udp_pkg/scripts;source ~/$pkgRoot/devel/setup.sh;echo Please Run iris_sender Pkg;python3 iris_sender.py 1"
+
+gnome-terminal	--tab --title="attack_detection" -- bash -c "cd ~/$pkgRoot/src/udp_pkg/scripts;source ~/$pkgRoot/devel/setup.sh;echo Please Run attack_detection Pkg;python3 detection.py"
 
 gnome-terminal	--tab --title="kf_pkg" -- bash -c "cd ~/$pkgRoot ;source ~/$pkgRoot/devel/setup.sh;rosrun kalman_filter kalman_filter"
 

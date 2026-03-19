@@ -20,9 +20,11 @@ sleep 2
 gnome-terminal	--tab --title="localPose_display" -- bash -c " rostopic echo /mavros/local_position/pose"
 sleep 2
 
-gnome-terminal	--tab --title="udp_pkg" -- bash -c "cd ~/$pkgRoot/src/udp_pkg/scripts;source ~/$pkgRoot/devel/setup.sh;echo Please Run the Udp Pkg;python3 agent.py 2 192.168.31.36 192.168.31.163 192.168.31.51"
+gnome-terminal	--tab --title="udp_pkg" -- bash -c "cd ~/$pkgRoot/src/udp_pkg/scripts;source ~/$pkgRoot/devel/setup.sh;echo Please Run the udp_pkg Pkg;python3 agent.py 2 192.168.31.36 192.168.31.163 192.168.31.51"
 
-gnome-terminal	--tab --title="iris_sender" -- bash -c "cd ~/$pkgRoot/src/udp_pkg/scripts;source ~/$pkgRoot/devel/setup.sh;echo Please Run the Udp Pkg;python3 iris_sender.py 2"
+gnome-terminal	--tab --title="iris_sender" -- bash -c "cd ~/$pkgRoot/src/udp_pkg/scripts;source ~/$pkgRoot/devel/setup.sh;echo Please Run the iris_sender Pkg;python3 iris_sender.py 2"
+
+gnome-terminal	--tab --title="attack_detection" -- bash -c "cd ~/$pkgRoot/src/udp_pkg/scripts;source ~/$pkgRoot/devel/setup.sh;echo Please Run attack_detection Pkg;python3 detection.py"
 
 gnome-terminal	--tab --title="kf_pkg" -- bash -c "cd ~/$pkgRoot ;source ~/$pkgRoot/devel/setup.sh;rosrun kalman_filter kalman_filter"
 
