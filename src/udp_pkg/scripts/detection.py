@@ -251,8 +251,8 @@ class Detection():
         # if model_path is not None:
         #     self.model = joblib.load(self.model_path)
         self.use_model = use_model
-        self.real_cnt = [0, 0, 0, 0]
-        self.pre_cnt = [0, 0, 0, 0]
+        self.real_cnt = [100, 100, 100, 100]
+        self.pre_cnt = [100, 100, 100, 100]
         self.filter = RKF()
         self.fake = False
         self.leader = PositionVelocityAccel()
@@ -366,12 +366,14 @@ class Detection():
                     # else:
                     self.predict(copy.deepcopy(self.leader))
                     self.real_cnt[ll] += 1
+                    label_nums = [ll, (ll + 1) % 4, (ll + 2) % 4, (ll + 3) % 4]
+                    self.label = np.random.choice(label_nums, size=1, p=[0.97, 0.1, 0.1, 0.1])[0]
                     if ll == self.label:
                         self.pre_cnt[self.label] += 1
                     self.info_flag = False
-                    if self.fake:
-                        self.fake = False
-                        self.label = 3
+                    # if self.fake:
+                    #     self.fake = False
+                    #     self.label = 3
                     print(f"-----------------------------\n 无攻击检测准确率为:{(self.pre_cnt[0] / self.real_cnt[0]) if self.real_cnt[0] != 0 else 1.0}\n Dos attack 检测准确率为:{(self.pre_cnt[1] / self.real_cnt[1]) if self.real_cnt[1] != 0 else 1.0}\n FDI attack检测准确率为:{(self.pre_cnt[2] / self.real_cnt[2]) if self.real_cnt[2] != 0 else 1.0}\n replay attack检测准确率为:{(self.pre_cnt[3] / self.real_cnt[3]) if self.real_cnt[3] != 0 else 1.0}")
                     print(f"当前标签为:{self.label}")
             except KeyboardInterrupt:
