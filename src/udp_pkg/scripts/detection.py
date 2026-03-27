@@ -367,7 +367,7 @@ class Detection():
                     self.predict(copy.deepcopy(self.leader))
                     self.real_cnt[ll] += 1
                     label_nums = [ll, (ll + 1) % 4, (ll + 2) % 4, (ll + 3) % 4]
-                    self.label = np.random.choice(label_nums, size=1, p=[0.97, 0.1, 0.1, 0.1])[0]
+                    self.label = np.random.choice(label_nums, size=1, p=[0.97, 0.01, 0.01, 0.01])[0]
                     if ll == self.label:
                         self.pre_cnt[self.label] += 1
                     self.info_flag = False

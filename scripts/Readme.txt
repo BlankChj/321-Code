@@ -10,12 +10,13 @@ source leader_iris5_launch.sh
 source follower_iris4_launch.sh
 最后一个端口输入 rosrun follower_control follower_control 1.5 0 0进行飞行启动
 随后进行数据保存 source follower_data_save.sh
-保存完后绘图  source follower_plot_rkf.sh
+保存完后绘图  source follower_plot_detection.sh
 
 source follower_iris7_launch.sh
 最后一个端口输入 rosrun follower_control follower_control -1.5 0 0进行飞行启动
 随后进行数据保存 source follower_data_save.sh
 保存完后绘图  source follower_plot_rkf.sh
+保存完后绘图  source follower_plot_detection.sh
 
 //地面站主机
 从机启动后
